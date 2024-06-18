@@ -100,7 +100,7 @@
     "prettier-plugin-toml": "2.0.1",
     "syncpack": "12.3.2",
     "ts-jest": "29.1.5",
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "tsc": "2.0.4",
     "typescript": "5.4.5"
   }
