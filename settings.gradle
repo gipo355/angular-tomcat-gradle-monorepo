@@ -5,6 +5,11 @@
  * For more detailed information on multi-project builds, please refer to https://docs.gradle.org/8.8/userguide/multi_project_builds.html in the Gradle documentation.
  */
 
+
+plugins {
+	id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
 rootProject.name = 'angular-tomcat-gradle-monorepo'
 
 // https://docs.gradle.org/current/userguide/multi_project_builds.html#multi_project_builds
@@ -13,3 +18,5 @@ include(':libs:smispi')
 project(':libs:smispi').projectDir = file('libs/smispi')
 include(':apps:tomcat-api-boilerplate')
 project(':apps:tomcat-api-boilerplate').projectDir = file('apps/tomcat-api-boilerplate')
+
+
