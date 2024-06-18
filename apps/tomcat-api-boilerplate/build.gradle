@@ -1,21 +1,11 @@
 plugins {
-	id 'java'
-	id 'war'
-
-	id 'eclipse'
-	id 'idea'
-
-	id 'jacoco'
 	id 'com.diffplug.spotless' version '6.25.0'
-	id 'checkstyle'
-	id 'org.openrewrite.rewrite' version '6.16.2'
-	id "com.github.spotbugs" version "6.0.18"
+	id 'org.openrewrite.rewrite' version '6.16.0'
+	id "com.github.spotbugs" version "6.0.17"
 
 	id "name.remal.sonarlint" version "4.2.4"
 
 	id 'info.solidsoft.pitest' version '1.15.0'
-
-	id 'groovy'
 }
 
 compileJava.options.encoding = "UTF-8"
@@ -36,8 +26,8 @@ def JERSEY_VERSION = "2+"
 def TOMCAT_VERSION = "9+"
 
 dependencies {
-  //  NOTE: can import directly from the monorepo libs
-  implementation project(':libs:smispi')
+	//  NOTE: can import directly from the monorepo libs
+	implementation project(':libs:smispi')
 
 	// tools
 	rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.10.1")

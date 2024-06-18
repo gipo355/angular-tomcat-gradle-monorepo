@@ -5,8 +5,17 @@
  * To learn more about Gradle by exploring our Samples at https://docs.gradle.org/8.8/samples
  */
 
-allprojects {
+subprojects {
   apply {
+      plugin("java")
+      plugin("maven-publish")
+      plugin('java-library')
       plugin("project-report")
+    	plugin('jacoco')
+      plugin('war')
+      plugin('idea')
+      plugin('eclipse')
+      plugin('checkstyle')
+      plugin('groovy')
   }
 }
