@@ -1,43 +1,11 @@
 plugins {
-	// id 'java-library'
-
-	// id 'jacoco'
-
-
-	// id 'groovy'
-	//
-	// id 'maven-publish'
-
-
-	// id 'checkstyle'
-
-	// id 'org.openrewrite.rewrite' version '6.16.0'
-
 	id "com.vanniktech.maven.publish" version "0.28.0"
-
-	// id 'com.diffplug.spotless' version '6.25.0'
-
-	// id "com.github.spotbugs" version "6.0.17"
-
-	// id "name.remal.sonarlint" version "4.2.3"
-
-	// id 'info.solidsoft.pitest' version '1.15.0'
 }
 
 
 dependencies {
-	// rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.9.0")
-	//
-	// rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
-
-	// testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
-
 	api 'org.slf4j:slf4j-api:2.0.13'
 }
-
-// repositories {
-// 	mavenCentral()
-// }
 
 // ./gradlew -Pversion=${version} publish will set the version when publishing
 
