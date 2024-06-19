@@ -14,13 +14,13 @@
     "lint": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "./gradlew :apps:tomcat-api-boilerplate:check"
+        "command": "./gradlew :apps:tomcat-api-boilerplate:lint"
       }
     },
     "fix": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "./gradlew :apps:tomcat-api-boilerplate:format"
+        "command": "./gradlew :apps:tomcat-api-boilerplate:fix"
       }
     },
     "serve": {

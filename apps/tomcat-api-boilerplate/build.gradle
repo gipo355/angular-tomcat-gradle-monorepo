@@ -10,10 +10,8 @@ plugins {
 	id 'info.solidsoft.pitest' version '1.15.0'
 }
 
-compileJava.options.encoding = "UTF-8"
-compileTestJava.options.encoding = "UTF-8"
-
 // mainClassName = "io.github.gipo999.rest.base.App"
+
 
 sourceCompatibility = 21
 targetCompatibility = 21
@@ -81,34 +79,10 @@ dependencies {
 // def _artifactID = 'rest.base'
 // def _mainClass = 'App'
 
-group = 'io.github.gipo999'
-
-// ### CHECKSTYLE
-checkstyle {
-	toolVersion '10.17.0'
-
-	// configDirectory = '../../checkstyle'
-	// configDirectory = file("../../checkstyle")
-
-
-	ignoreFailures = false
-
-	maxWarnings = 0
-}
 // tasks.withType(Checkstyle).configureEach {
 //     configDirectory.set(file("../../checkstyle"))
 // }
 
-// ### REWRITE
-rewrite {
-	activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
-
-	activeRecipe("org.openrewrite.java.security.PartialPathTraversalVulnerability")
-
-	activeRecipe("org.openrewrite.java.security.JavaSecurityBestPractices")
-
-	activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
-}
 
 
 // TODO: make sure we are not checking and formatting useless files
@@ -257,7 +231,12 @@ tasks.register('integrationTest', Test) {
 	}
 }
 
-tasks.register("format") {
+// those are not picked up by nx
+// must add them to project.json
+tasks.register("fix") {
 	dependsOn "spotlessApply"
 	dependsOn "rewriteRun"
+}
+tasks.register("lint") {
+	dependsOn "check"
 }

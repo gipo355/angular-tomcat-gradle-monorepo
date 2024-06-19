@@ -13,6 +13,7 @@ buildscript {
   // needed for applying plugins to subprojects
   repositories {
     mavenCentral()
+    // provide gradle repo for plugins
     maven {
       url "https://plugins.gradle.org/m2/"
     }
@@ -23,7 +24,59 @@ buildscript {
   }
 }
 
+// https://github.com/openrewrite/rewrite/issues/1263
+
+// plugins {
+//   id 'java'
+//   id 'maven-publish'
+//   id 'java-library'
+//   id 'project-report'
+//   id 'jacoco'
+//   id 'war'
+//   id 'idea'
+//   id 'eclipse'
+//   id 'checkstyle'
+//   id 'groovy'
+//
+//   id 'org.openrewrite.rewrite' version '6.16.0'
+// }
+
+// dependencies {
+//   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+//   testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+//
+//   // tools
+//   rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.9.0")
+//
+//   rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
+// }
+
+
+
+// repositories {
+//   mavenCentral()
+//   // gradle plugins
+//   // maven {
+//   //   url "https://plugins.gradle.org/m2/"
+//   // }
+// }
+
+// ### REWRITE
+// rewrite {
+// 	activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
+//
+// 	activeRecipe("org.openrewrite.java.security.PartialPathTraversalVulnerability")
+//
+// 	activeRecipe("org.openrewrite.java.security.JavaSecurityBestPractices")
+//
+// 	activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
+// }
+
+
 // https://discuss.gradle.org/t/multi-module-project-how-where-to-apply-plugins/46701/2
+
+
+
 
 // passing all those to subprojects
 subprojects {
@@ -76,4 +129,39 @@ subprojects {
 
     rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
   }
+
+  // shared configs
+  // shared group, here or globally?
+  group = 'io.github.gipo999'
+
+
+  compileJava.options.encoding = "UTF-8"
+  compileTestJava.options.encoding = "UTF-8"
+
+
+  // ### REWRITE,
+  rewrite {
+    activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
+
+    activeRecipe("org.openrewrite.java.security.PartialPathTraversalVulnerability")
+
+    activeRecipe("org.openrewrite.java.security.JavaSecurityBestPractices")
+
+    activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
+  }
+
+  // ### CHECKSTYLE
+  checkstyle {
+    toolVersion '10.17.0'
+
+    // configDirectory = '../../checkstyle'
+    // configDirectory = file("../../checkstyle")
+
+
+    ignoreFailures = false
+
+    maxWarnings = 0
+  }
+
+
 }
