@@ -47,27 +47,7 @@ rewrite {
 	activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
 }
 
-// ### PIT
-pitest {
-	junit5PluginVersion = '1.2.1'
 
-	pitestVersion = '1.15.2'
-}
-
-// ## JACOCO report for test coverage and codecov
-test {
-	finalizedBy jacocoTestReport
-
-	useJUnitPlatform()
-}
-
-jacocoTestReport {
-	dependsOn test
-
-	reports {
-		xml.required = true
-	}
-}
 
 // ### SPOTLESS
 spotless {
@@ -200,9 +180,4 @@ java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
 	}
-}
-
-tasks.register("format") {
-	dependsOn "spotlessApply"
-	dependsOn "rewriteRun"
 }

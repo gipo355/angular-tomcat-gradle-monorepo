@@ -1,17 +1,8 @@
-plugins {
-	// id 'com.diffplug.spotless' version '6.25.0'
-
-	// id 'org.openrewrite.rewrite' version '6.16.0'
-
-	// id "com.github.spotbugs" version "6.0.17"
-
-	// id "name.remal.sonarlint" version "4.2.3"
-
-	// id 'info.solidsoft.pitest' version '1.15.0'
-}
+plugins { }
 
 // mainClassName = "io.github.gipo999.rest.base.App"
 
+// common excludes for spotless, from root gradle.properties
 def commonExcludes = project.properties['commonExcludes'].split(',')
 
 // shared configs
@@ -95,12 +86,6 @@ dependencies {
 
 
 // ### PIT
-pitest {
-	junit5PluginVersion = '1.2.1'
-
-	pitestVersion = '1.15.2'
-}
-
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
@@ -145,7 +130,6 @@ spotless {
 
 		targetExclude commonExcludes
 
-
 		greclipse()
 	}
 
@@ -169,6 +153,7 @@ spotless {
 } // ### SPOTLESS
 
 
+// override root project config
 test {
 	// dependsOn 'check'
 
@@ -180,16 +165,6 @@ test {
 
 	testLogging {
 		events "passed", "skipped", "failed"
-	}
-}
-
-// ## JACOCO report for test coverage and codecov
-
-jacocoTestReport {
-	dependsOn test
-
-	reports {
-		xml.required = true // required for codecov
 	}
 }
 
@@ -228,14 +203,4 @@ tasks.register('integrationTest', Test) {
 	testLogging {
 		events "passed", "skipped", "failed"
 	}
-}
-
-// those are not picked up by nx
-// must add them to project.json
-tasks.register("fix") {
-	dependsOn "spotlessApply"
-	dependsOn "rewriteRun"
-}
-tasks.register("lint") {
-	dependsOn "check"
 }

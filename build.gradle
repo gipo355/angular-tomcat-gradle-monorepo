@@ -112,5 +112,40 @@ subprojects {
     maxWarnings = 0
   } // ### CHECKSTYLE
 
+  // ## JACOCO report for test coverage and codecov
+  test {
+    finalizedBy jacocoTestReport
+
+    useJUnitPlatform()
+  }
+
+  jacocoTestReport {
+    dependsOn test
+
+    reports {
+      xml.required = true
+    }
+  }
+
+  // ### PIT
+  pitest {
+	junit5PluginVersion = '1.2.1'
+
+	pitestVersion = '1.15.2'
+}
+
+  // those are not picked up by nx must add them to project.json
+// standardizing tasks across nx monorepo for both java and js
+// to ease up CI/CD
+  // those tasks are given to all subprojects
+  tasks.register("fix") {
+	dependsOn "spotlessApply"
+	dependsOn "rewriteRun"
+}
+tasks.register("lint") {
+	dependsOn "check"
+}
+
+
 
 } // subprojects
