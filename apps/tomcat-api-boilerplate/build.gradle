@@ -5,14 +5,20 @@ plugins {
 
 	// id "com.github.spotbugs" version "6.0.17"
 
-	id "name.remal.sonarlint" version "4.2.4"
+	// id "name.remal.sonarlint" version "4.2.3"
 
-	id 'info.solidsoft.pitest' version '1.15.0'
+	// id 'info.solidsoft.pitest' version '1.15.0'
 }
 
 // mainClassName = "io.github.gipo999.rest.base.App"
 
 def commonExcludes = project.properties['commonExcludes'].split(',')
+
+// shared configs
+// shared group, here or globally?
+group = 'io.github.gipo999'
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
 
 sourceCompatibility = 21
 targetCompatibility = 21
