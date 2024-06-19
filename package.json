@@ -74,7 +74,7 @@
     "@playwright/test": "1.44.1",
     "@schematics/angular": "18.0.4",
     "@swc-node/register": "1.9.2",
-    "@swc/core": "1.5.29",
+    "@swc/core": "1.6.3",
     "eslint-plugin-import": "2.29.1",
     "jsonc-eslint-parser": "2.4.0",
     "@swc/helpers": "0.5.11",
