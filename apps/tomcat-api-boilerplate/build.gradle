@@ -1,9 +1,9 @@
 plugins {
-	id 'com.diffplug.spotless' version '6.25.0'
+	// id 'com.diffplug.spotless' version '6.25.0'
 
 	// id 'org.openrewrite.rewrite' version '6.16.0'
 
-	id "com.github.spotbugs" version "6.0.17"
+	// id "com.github.spotbugs" version "6.0.17"
 
 	id "name.remal.sonarlint" version "4.2.4"
 
@@ -12,6 +12,7 @@ plugins {
 
 // mainClassName = "io.github.gipo999.rest.base.App"
 
+def commonExcludes = project.properties['commonExcludes'].split(',')
 
 sourceCompatibility = 21
 targetCompatibility = 21
@@ -84,15 +85,28 @@ dependencies {
 // }
 
 
-
 // TODO: make sure we are not checking and formatting useless files
+
+
+// ### PIT
+pitest {
+	junit5PluginVersion = '1.2.1'
+
+	pitestVersion = '1.15.2'
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
 
 // ### SPOTLESS
 spotless {
 	format 'misc', {
-		target '*.gradle', '.gitattributes', '.gitignore'
+		target '**/*.gradle'
 
-		targetExclude 'build/**/*', 'node_modules/**/*', 'target/**/*', 'out/**/*', 'dist/**/*', 'bin/**/*'
+		targetExclude commonExcludes
 
 		trimTrailingWhitespace()
 
@@ -104,17 +118,9 @@ spotless {
 	format 'xml', {
 		target '**/*.xml'
 
-		targetExclude 'build/**/*', 'node_modules/**/*', 'target/**/*', 'out/**/*', 'dist/**/*', 'bin/**/*', 'tomcat/**/*'
+		targetExclude commonExcludes
 
 		eclipseWtp('xml')
-	}
-
-	format 'styling', {
-		targetExclude 'build/**/*', 'node_modules/**/*', 'target/**/*', 'out/**/*', 'dist/**/*', 'bin/**/*'
-
-		target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
-
-		prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
 	}
 
 	groovy {
@@ -129,9 +135,10 @@ spotless {
 	}
 
 	groovyGradle {
-		targetExclude 'build/**', 'node_modules/**', 'target/**', 'out/**', 'dist/**', 'bin/**'
+		target '**/*.gradle'
 
-		target '*.gradle'
+		targetExclude commonExcludes
+
 
 		greclipse()
 	}
@@ -153,21 +160,7 @@ spotless {
 
 		// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
 	}
-}
-
-
-// ### PIT
-pitest {
-	junit5PluginVersion = '1.2.1'
-
-	pitestVersion = '1.15.2'
-}
-
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
-}
+} // ### SPOTLESS
 
 
 test {
