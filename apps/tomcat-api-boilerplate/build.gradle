@@ -90,67 +90,6 @@ java {
 	}
 }
 
-// ### SPOTLESS
-spotless {
-	format 'misc', {
-		target '**/*.gradle'
-
-		targetExclude commonExcludes
-
-		trimTrailingWhitespace()
-
-		indentWithTabs()
-
-		endWithNewline()
-	}
-
-	format 'xml', {
-		target '**/*.xml'
-
-		targetExclude commonExcludes
-
-		eclipseWtp('xml')
-	}
-
-	groovy {
-		importOrder()
-
-		removeSemicolons()
-
-		greclipse()
-
-		// Add a license header to all files
-		// licenseHeader('/* (C) $YEAR */') // or licenseHeaderFile
-	}
-
-	groovyGradle {
-		target '**/*.gradle'
-
-		targetExclude commonExcludes
-
-		greclipse()
-	}
-
-	java {
-		importOrder()
-
-		removeUnusedImports()
-
-		cleanthat()
-
-		trimTrailingWhitespace()
-
-		endWithNewline()
-
-		googleJavaFormat()
-
-		formatAnnotations()
-
-		// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
-	}
-} // ### SPOTLESS
-
-
 // override root project config
 test {
 	// dependsOn 'check'
