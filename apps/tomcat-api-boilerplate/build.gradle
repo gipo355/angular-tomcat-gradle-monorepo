@@ -26,7 +26,8 @@ dependencies {
 
 	implementation(group: 'org.slf4j', name: 'slf4j-api', version: '2+')
 
-	compileOnly(group: 'org.apache.tomcat', name: 'tomcat-catalina', version: "${TOMCAT_VERSION}")
+	// compileOnly(group: 'org.apache.tomcat', name: 'tomcat-catalina', version: "${TOMCAT_VERSION}")
+	compileOnly libs.bundles.tomcat
 
 	implementation('javax.xml.bind:jaxb-api:2.3.1')
 

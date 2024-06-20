@@ -19,4 +19,45 @@ project(':libs:smispi').projectDir = file('libs/smispi')
 include(':apps:tomcat-api-boilerplate')
 project(':apps:tomcat-api-boilerplate').projectDir = file('apps/tomcat-api-boilerplate')
 
-
+// sharing dependencies between subprojects
+// https://docs.gradle.org/current/userguide/platforms.html
+// alternatively, use version catalogs TOML
+// from file libs/libs.versions.toml: default to gradle/libs.versions.toml
+// dependencyResolutionManagement {
+//   versionCatalogs {
+//     libs {
+//       // alias 'org.openrewrite:rewrite-gradle-plugin'
+//       // alias 'com.diffplug.spotless:spotless-plugin-gradle'
+//       // alias 'com.github.spotbugs.snom:spotbugs-gradle-plugin'
+//       // alias 'name.remal.gradle-plugins.sonarlint:sonarlint'
+//       // alias 'info.solidsoft.gradle.pitest:gradle-pitest-plugin'
+//       // version('rewrite-gradle-plugin', '6.16.0')
+//       // version('spotless-plugin-gradle', '6.25.0')
+//       // version('spotbugs-gradle-plugin', '6.0.17')
+//       // version('sonarlint', '4.2.4')
+//       // version('gradle-pitest-plugin', '1.15.0')
+//       version('checkstyle', '10.17.0')
+//
+//       // examples
+//       // library('groovy-core', 'org.codehaus.groovy:groovy:3.0.5')
+//       // library('commons-lang3', 'org.apache.commons', 'commons-lang3').version {
+//       //     strictly '[3.8, 4.0['
+//       //     prefer '3.9'
+//       // }
+//       // plugin('versions', 'com.github.ben-manes.versions').version('0.45.0')
+//
+//       // tomcat webapp
+//       version('tomcat', '9+')
+//       library('tomcat-api', 'org.apache.tomcat', 'tomcat-catalina').versionRef('tomcat')
+//
+//       bundle('tomcat-api', ['tomcat-api'])
+//     }
+//   }
+// }
+// dependencyResolutionManagement {
+//     versionCatalogs {
+//         libs {
+//             from(files("./gradle/libs.versions.toml"))
+//         }
+//     }
+// }

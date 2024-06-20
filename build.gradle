@@ -1,6 +1,15 @@
 // NOTE: what is this?
 import jdk.tools.jlink.resources.plugins
 
+// CHECK:
+// https://docs.gradle.org/7.5.1/samples/sample_convention_plugins.html
+// https://docs.gradle.org/current/userguide/platforms.html#sec:dependency-bundles
+// https://medium.com/kufar-tech/gradle-ways-to-share-dependencies-between-modules-27b8c3937f11
+// https://engineering.teknasyon.com/a-simple-guide-to-version-catalog-implementation-in-android-17d0ff3fd1f
+// https://medium.com/@joleksiysurovtsev/gradle-version-catalog-simplifying-dependency-management-between-independent-projects-4a8e8dd2cbe0
+// https://medium.com/@rohitloke/gradle-multi-module-dependency-management-using-version-catalogs-379f3988da5b
+// https://discuss.gradle.org/t/multiple-catalogs-multi-project-buildsrc/45473/4
+
 // NOTE: is theree a better more modern way to do this to pass plugins down to subprojects?
 buildscript {
   // needed for applying plugins to subprojects
@@ -170,7 +179,9 @@ subprojects {
 
   // ### CHECKSTYLE
   checkstyle {
-    toolVersion '10.17.0'
+    // toolVersion '10.17.0'
+    toolVersion = libs.versions.checkstyle.get()
+
 
     // configDirectory = '../../checkstyle'
     // configDirectory = file("../../checkstyle")
