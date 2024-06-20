@@ -91,7 +91,25 @@ subprojects {
       plugin("name.remal.sonarlint")
       plugin('info.solidsoft.pitest')
 
+
   }
+
+  // can test apply from
+  // WORKS
+  // Applying global settings
+  apply from: "${rootDir}/gradle/global-settings.gradle"
+    // compileTestJava.options.encoding = "UTF-8"
+    // compileJava.options.encoding = "UTF-8"
+    // sourceCompatibility = 21
+    // targetCompatibility = 21
+    // java {
+    //   toolchain {
+    //     languageVersion = JavaLanguageVersion.of(21)
+    //   }
+    // }
+
+
+  // apply compileTestJava.options.encoding = "UTF-8"
 
   // TODO: can this be put in libs.version.toml?
   dependencies {

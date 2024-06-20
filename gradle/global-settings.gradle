@@ -1,0 +1,10 @@
+compileTestJava.options.encoding = "UTF-8"
+compileJava.options.encoding = "UTF-8"
+sourceCompatibility = 21
+targetCompatibility = 21
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(21)
+  }
+}
+group = "io.github.gipo999"
