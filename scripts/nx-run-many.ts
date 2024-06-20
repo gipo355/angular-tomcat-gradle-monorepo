@@ -5,7 +5,7 @@ const args = process.argv.slice(2);
 
 import { cpus } from 'node:os';
 
-const allowedArgs = ['--lint', '--test', '--build'];
+const allowedArgs = ['--lint', '--test', '--build', '--fix'];
 
 const targets: string[] = [];
 

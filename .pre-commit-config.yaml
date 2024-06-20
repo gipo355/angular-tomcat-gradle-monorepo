@@ -84,9 +84,15 @@ repos:
         # and make sure everything is ok
         # ---- PRE PUSH ----
         # executes check, checks everything (spotless, checkstyle)
-      - id: lint-staged
-        name: lint-staged
-        entry: pnpm lint-staged
+      # - id: lint-staged
+      #   name: lint-staged
+      #   entry: pnpm lint-staged
+      #   pass_filenames: false
+      #   language: system
+      #   stages: [commit]
+      - id: lint-affected
+        name: lint-affected
+        entry: pnpm lint-affected
         pass_filenames: false
         language: system
         stages: [commit]
