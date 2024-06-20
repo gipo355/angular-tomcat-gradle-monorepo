@@ -1,89 +1,29 @@
 plugins { }
 
-// mainClassName = "io.github.gipo999.rest.base.App"
+// IN root global settings
+// group = 'io.github.gipo999'
+// compileJava.options.encoding = "UTF-8"
+// compileTestJava.options.encoding = "UTF-8"
+// sourceCompatibility = 21
+// targetCompatibility = 21
+// java {
+// 	toolchain {
+// 		languageVersion = JavaLanguageVersion.of(21)
+// 	}
+// }
 
-// common excludes for spotless, from root gradle.properties
-// def commonExcludes = project.properties['commonExcludes'].split(',')
-
-// shared configs
-// shared group, here or globally?
-group = 'io.github.gipo999'
-compileJava.options.encoding = "UTF-8"
-compileTestJava.options.encoding = "UTF-8"
-
-sourceCompatibility = 21
-targetCompatibility = 21
 project.webAppDirName = 'src/main/webapp'
 
-// def JERSEY_VERSION = "2+"
-// def TOMCAT_VERSION = "9+"
-
 // TODO: what if different projects need different versions?
+// e.g different tomcat vers
+// different java vers
 dependencies {
 
 	//  NOTE: can import directly from the monorepo libs
 	implementation project(':libs:smispi')
 
-
-	// compileOnly(group: 'org.apache.tomcat', name: 'tomcat-catalina', version: "${TOMCAT_VERSION}")
-	// compileOnly libs.bundles.tomcatApiServer
 	compileOnly libs.bundles.tomcat.api.compileOnly
-
-	//  implementation(group: 'org.slf4j', name: 'slf4j-api', version: '2+')
-	//
-	// implementation('javax.xml.bind:jaxb-api:2.3.1')
-	//
-	// implementation(group: 'jakarta.ws.rs', name: 'jakarta.ws.rs-api', version: "2+")
-	//
-	// implementation(group: 'org.glassfish.jersey.core', name: 'jersey-client', version: "${JERSEY_VERSION}")
-	//
-	// implementation(group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet-core', version: "${JERSEY_VERSION}")
-	//
-	// implementation(group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: "${JERSEY_VERSION}")
-	//
-	// implementation(group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: "${JERSEY_VERSION}")
-	//
-	// implementation(group: 'org.slf4j', name: 'slf4j-simple', version: '2+')
-	//
-	// implementation(group: 'com.google.code.gson', name: 'gson', version: "2+")
 	implementation libs.bundles.tomcat.api.implementation
 
-	// testImplementation(group: 'org.glassfish.jersey.core', name: 'jersey-client', version: "${JERSEY_VERSION}")
 	testImplementation libs.bundles.tomcat.api.testImplementation
-
-
-	//    implementation group: 'com.smi', name: 'smi-commons-gson', version: "${SMI_COMMONS}"
-	//    implementation group: 'com.smi', name: 'smi-commons-jersey', version: "${SMI_COMMONS}"
-	//    implementation group: 'com.smi', name: 'smi-commons-yaml', version: "${SMI_COMMONS}"
-	//    implementation group: 'com.smi', name: 'smi-commons-lang', version: "${SMI_COMMONS}"
-	//    implementation group: 'com.smi', name: 'smi-commons-singleton', version: "${SMI_COMMONS}"
-	//    implementation group: 'com.smi', name: 'smi-commons-pool', version: "${SMI_COMMONS}"
-}
-
-
-// no main method
-// https://stackoverflow.com/questions/8630496/main-class-of-a-tomcat-web-application
-// https://gist.github.com/Antowka/b99b6259376a7eb44c22
-
-// repositories {
-// 	mavenCentral()
-// }
-
-// eclipse.project {
-//     natures "org.eclipse.buildship.core.gradleprojectnature"
-// }
-
-// def _groupID = 'io.github.gipo999'
-// def _artifactID = 'rest.base'
-// def _mainClass = 'App'
-
-// tasks.withType(Checkstyle).configureEach {
-//     configDirectory.set(file("../../checkstyle"))
-// }
-
-
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
 }

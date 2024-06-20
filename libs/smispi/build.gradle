@@ -11,7 +11,7 @@ dependencies {
 
 // ./gradlew -Pversion=${version} publish will set the version when publishing
 
-def customGroupID = 'io.github.gipo999'
+// def customGroupID = 'io.github.gipo999'
 def customGithubRepository = 'smispi'
 def customGithubOwner = 'gipo999'
 def customArtifactID = 'smispi'
@@ -27,12 +27,19 @@ def customSigningPassword = System.getenv('GPG_PASSWORD')
 def customGithubToken = System.getenv('GITHUB_TOKEN')
 def customGithubActor = System.getenv('GITHUB_ACTOR')
 
-group = customGroupID
-sourceCompatibility = 17
-targetCompatibility = 17
-compileJava.options.encoding = "UTF-8"
-compileTestJava.options.encoding = "UTF-8"
+// TODO: check if without group i can do it, if in root settings.gradle works
+// if variable can be passed from root
+// group = customGroupID
+// sourceCompatibility = 17
+// targetCompatibility = 17
+// compileJava.options.encoding = "UTF-8"
+// compileTestJava.options.encoding = "UTF-8"
 
+// java {
+// 	toolchain {
+// 		languageVersion = JavaLanguageVersion.of(17)
+// 	}
+// }
 
 import com.vanniktech.maven.publish.SonatypeHost
 mavenPublishing {
@@ -40,7 +47,7 @@ mavenPublishing {
 
 	signAllPublications()
 
-	coordinates(customGroupID, customArtifactID, version)
+	coordinates(group, customArtifactID, version)
 
 	pom {
 		name = customArtifactID
@@ -90,11 +97,5 @@ publishing {
 				password = customGithubToken
 			}
 		}
-	}
-}
-
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
