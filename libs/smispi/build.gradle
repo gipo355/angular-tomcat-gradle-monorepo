@@ -2,7 +2,6 @@ plugins {
 	id "com.vanniktech.maven.publish" version "0.28.0"
 }
 
-
 dependencies {
 	api 'org.slf4j:slf4j-api:2.0.13'
 }

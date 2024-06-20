@@ -15,11 +15,6 @@ sourceCompatibility = 21
 targetCompatibility = 21
 project.webAppDirName = 'src/main/webapp'
 
-// IMP: compatibliity with tomcat 9?
-// jersey 2+ works only with tomcat 9+
-// jersey 3+ works only with tomcat 10+
-// check docker compose file
-// https://stackoverflow.com/questions/62595510/severe-servlet-jersey-web-application-in-web-application-restapp-threw-loa
 def JERSEY_VERSION = "2+"
 def TOMCAT_VERSION = "9+"
 
@@ -83,55 +78,8 @@ dependencies {
 // }
 
 
-// TODO: make sure we are not checking and formatting useless files
-
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
-	}
-}
-
-// override root project config
-test {
-	// dependsOn 'check'
-
-	finalizedBy jacocoTestReport
-
-	useJUnitPlatform {
-		exclude("**/integration/**")
-	}
-
-	testLogging {
-		events "passed", "skipped", "failed"
-	}
-}
-
-tasks.register("buildWar") {
-	dependsOn "check"
-	dependsOn "test"
-	dependsOn "war"
-}
-
-task cleanEclipse(type: Delete, overwrite: true) {
-	delete '.project'
-
-	delete '.classpath'
-
-	delete '.settings'
-
-	delete "bin"
-}
-
-// TODO: make war start the test command, test start the check command
-
-tasks.register('integrationTest', Test) {
-	group = 'verification'
-
-	useJUnitPlatform {
-		include("**/integration/**")
-	}
-
-	testLogging {
-		events "passed", "skipped", "failed"
 	}
 }
