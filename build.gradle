@@ -42,11 +42,11 @@ buildscript {
 
 // TOP LEVEL CONFIG to format root level files
 // TODO: format root level files with :task
-// plugins {
-//     id 'com.diffplug.spotless' version '6.25.0'
-//     id 'project-report'
-// 	  id 'groovy'
-// }
+plugins {
+    // id 'com.diffplug.spotless' version '6.25.0'
+    id 'project-report'
+	  // id 'groovy'
+}
 //
 // repositories {
 // 	mavenCentral()
