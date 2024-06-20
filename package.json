@@ -9,9 +9,9 @@
     "commit": "git-cz",
     "commitlint": "commitlint --edit",
     "format-packages": "tsx scripts/format-packages.ts --all",
-    "lint-all": "tsx scripts/nx-run-many.ts --lint --test --build",
-    "fix-all": "tsx scripts/nx-run-many.ts --fix",
-    "lint-affected": "nx affected -t lint"
+    "lint-all": "tsx scripts/nx-run-many.ts run-many --lint --test --build",
+    "fix-all": "tsx scripts/nx-run-many.ts run-many --fix",
+    "lint-affected": "tsx scripts/nx-run-many.ts affected --lint"
   },
   "private": true,
   "dependencies": {
