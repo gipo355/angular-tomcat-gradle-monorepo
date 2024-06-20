@@ -84,8 +84,6 @@ dependencies {
 
 // TODO: make sure we are not checking and formatting useless files
 
-
-// ### PIT
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
@@ -167,13 +165,6 @@ test {
 		events "passed", "skipped", "failed"
 	}
 }
-
-// we provide another command as we need to run war in CI without running the tests
-// check requires nodejs
-// war {
-// 	dependsOn 'check'
-// 	dependsOn 'test'
-// }
 
 tasks.register("buildWar") {
 	dependsOn "check"

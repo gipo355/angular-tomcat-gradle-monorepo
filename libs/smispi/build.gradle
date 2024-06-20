@@ -27,28 +27,6 @@ def customGithubActor = System.getenv('GITHUB_ACTOR')
 
 group = customGroupID
 
-// ### CHECKSTYLE
-checkstyle {
-	toolVersion '10.17.0'
-
-	ignoreFailures = false
-
-	maxWarnings = 0
-}
-
-// ### REWRITE
-rewrite {
-	activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
-
-	activeRecipe("org.openrewrite.java.security.PartialPathTraversalVulnerability")
-
-	activeRecipe("org.openrewrite.java.security.JavaSecurityBestPractices")
-
-	activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
-}
-
-
-
 // ### SPOTLESS
 spotless {
 	format 'misc', {
