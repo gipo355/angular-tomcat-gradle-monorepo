@@ -1,9 +1,12 @@
 plugins {
-	id "com.vanniktech.maven.publish" version "0.28.0"
+  // TODO: can this be put in libs.version.toml?
+	// id "com.vanniktech.maven.publish" version "0.28.0"
+  alias(libs.plugins.vanniktechPublish)
 }
 
 dependencies {
-	api 'org.slf4j:slf4j-api:2.0.13'
+	// api 'org.slf4j:slf4j-api:2.0.13'
+	api libs.slf4j.api
 }
 
 // ./gradlew -Pversion=${version} publish will set the version when publishing

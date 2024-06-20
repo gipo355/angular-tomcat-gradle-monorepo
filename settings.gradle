@@ -6,6 +6,7 @@
  */
 
 
+// TODO: can this be put in libs.version.toml?
 plugins {
 	id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
 }
@@ -23,6 +24,8 @@ project(':apps:tomcat-api-boilerplate').projectDir = file('apps/tomcat-api-boile
 // https://docs.gradle.org/current/userguide/platforms.html
 // alternatively, use version catalogs TOML
 // from file libs/libs.versions.toml: default to gradle/libs.versions.toml
+// makes them available to all subprojects
+//
 // dependencyResolutionManagement {
 //   versionCatalogs {
 //     libs {

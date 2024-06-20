@@ -22,10 +22,11 @@ buildscript {
     gradlePluginPortal()
   }
 
+  // TODO: can this be put in libs.version.toml?
   dependencies {
     // classpath("org.openrewrite:rewrite-gradle-plugin:6.16.0")
-    classpath "org.openrewrite:plugin:6.16.0"
-    classpath  "com.diffplug.spotless:spotless-plugin-gradle:6.25.0"
+    classpath("org.openrewrite:plugin:6.16.0")
+    classpath("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
     classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.17")
     classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
     classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
@@ -67,6 +68,7 @@ subprojects {
   //   // id 'info.solidsoft.pitest' version '1.15.0'
   // }
 
+  // all subprojects will have those
   apply {
       plugin("java")
       plugin("maven-publish")
@@ -88,6 +90,7 @@ subprojects {
 
   }
 
+  // TODO: can this be put in libs.version.toml?
   dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
 	  testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
@@ -125,6 +128,7 @@ subprojects {
 
       target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
 
+      // TODO: can this be put in libs.version.toml?
       prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
 	  }
 
@@ -197,7 +201,6 @@ subprojects {
   //
   //   useJUnitPlatform()
   // }
-// override root project config
   test {
     // dependsOn 'check'
 
@@ -222,50 +225,54 @@ subprojects {
 
   // ### PIT
   pitest {
-	junit5PluginVersion = '1.2.1'
+    // TODO: put in libs.versions.toml
+    // junit5PluginVersion = '1.2.1'
+    junit5PluginVersion = libs.versions.junit5PluginVersion.get()
 
-	pitestVersion = '1.15.2'
-}
+    // TODO: put in libs.versions.toml
+    // pitestVersion = '1.15.2'
+    pitestVersion = libs.versions.pitestVersion.get()
+  }
 
   // those are not picked up by nx must add them to project.json
   // standardizing tasks across nx monorepo for both java and js
   // to ease up CI/CD
   // those tasks are given to all subprojects
   tasks.register("fix") {
-	dependsOn "spotlessApply"
-	dependsOn "rewriteRun"
-}
+    dependsOn "spotlessApply"
+    dependsOn "rewriteRun"
+  }
 
-tasks.register("lint") {
-	dependsOn "check"
-}
+  tasks.register("lint") {
+    dependsOn "check"
+  }
 
   tasks.register("buildWar") {
-	dependsOn "check"
-	dependsOn "test"
-	dependsOn "war"
-}
+    dependsOn "check"
+    dependsOn "test"
+    dependsOn "war"
+  }
 
-task cleanEclipse(type: Delete, overwrite: true) {
-	delete '.project'
+  task cleanEclipse(type: Delete, overwrite: true) {
+    delete '.project'
 
-	delete '.classpath'
+    delete '.classpath'
 
-	delete '.settings'
+    delete '.settings'
 
-	delete "bin"
-}
+    delete "bin"
+  }
 
-tasks.register('integrationTest', Test) {
-	group = 'verification'
+  tasks.register('integrationTest', Test) {
+    group = 'verification'
 
-	useJUnitPlatform {
-		include("**/integration/**")
-	}
+    useJUnitPlatform {
+      include("**/integration/**")
+    }
 
-	testLogging {
-		events "passed", "skipped", "failed"
-	}
-}
+    testLogging {
+      events "passed", "skipped", "failed"
+    }
+  }
 
 } // subprojects
