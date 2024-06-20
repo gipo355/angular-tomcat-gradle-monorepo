@@ -33,6 +33,7 @@ subprojects {
   // all subprojects will have those repos, no need to specify
   repositories {
     mavenCentral()
+    gradlePluginPortal()
   //   // gradle plugins
   //   maven {
   //     url "https://plugins.gradle.org/m2/"

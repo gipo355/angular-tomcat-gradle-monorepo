@@ -3,7 +3,7 @@ plugins { }
 // mainClassName = "io.github.gipo999.rest.base.App"
 
 // common excludes for spotless, from root gradle.properties
-def commonExcludes = project.properties['commonExcludes'].split(',')
+// def commonExcludes = project.properties['commonExcludes'].split(',')
 
 // shared configs
 // shared group, here or globally?
@@ -23,6 +23,7 @@ project.webAppDirName = 'src/main/webapp'
 def JERSEY_VERSION = "2+"
 def TOMCAT_VERSION = "9+"
 
+// TODO: group those deps in root to apply to all tomcat apps
 dependencies {
 
 	//  NOTE: can import directly from the monorepo libs
