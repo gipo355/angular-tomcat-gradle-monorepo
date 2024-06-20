@@ -25,6 +25,11 @@ def customGithubToken = System.getenv('GITHUB_TOKEN')
 def customGithubActor = System.getenv('GITHUB_ACTOR')
 
 group = customGroupID
+sourceCompatibility = 17
+targetCompatibility = 17
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
 
 import com.vanniktech.maven.publish.SonatypeHost
 mavenPublishing {
