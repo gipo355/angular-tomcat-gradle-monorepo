@@ -36,8 +36,8 @@ dependencies:
     specifier: 7.8.1
     version: 7.8.1
   tslib:
-    specifier: 2.3.0
-    version: 2.3.0
+    specifier: 2.6.3
+    version: 2.6.3
   zone.js:
     specifier: 0.14.7
     version: 0.14.7
@@ -500,7 +500,7 @@ packages:
       '@angular/core': 18.0.3
     dependencies:
       '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /@angular/build@18.0.5(@angular/compiler-cli@18.0.3)(@types/node@18.19.37)(less@4.2.0)(postcss@8.4.38)(stylus@0.59.0)(terser@5.31.0)(typescript@5.4.5):
     resolution: {integrity: sha512-6C+azPDYqPWX9/+53OTyvzmAKxrGwgQcDnueC/Sc6NZJOAs2VsOIn5ULPtcRDlrf/Rbo0dGM4OvKCM2q1BRuBg==}
@@ -603,7 +603,7 @@ packages:
     dependencies:
       '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
       rxjs: 7.8.1
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /@angular/compiler-cli@18.0.3(@angular/compiler@18.0.3)(typescript@5.4.5):
     resolution: {integrity: sha512-mxwQEeP94YBM6C9A2YfkV7ug1sHgh0fU/TSBpQcm5ni4cZiVPu6q/+Ft7hyFTKe2p3tKQme33+xVjsWhtOCx0A==}
@@ -620,7 +620,7 @@ packages:
       convert-source-map: 1.9.0
       reflect-metadata: 0.2.2
       semver: 7.6.2
-      tslib: 2.3.0
+      tslib: 2.6.3
       typescript: 5.4.5
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -636,7 +636,7 @@ packages:
         optional: true
     dependencies:
       '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7):
     resolution: {integrity: sha512-376hijhEqNpeA+qKncpVTIaZXRdBT6RctEBnFhJ2l57aHPH5S3oaSBQu1k3TEi07FlKOD4XF1+NzX9dvdup1eg==}
@@ -646,7 +646,7 @@ packages:
       zone.js: ~0.14.0
     dependencies:
       rxjs: 7.8.1
-      tslib: 2.3.0
+      tslib: 2.6.3
       zone.js: 0.14.7
 
   /@angular/forms@18.0.3(@angular/common@18.0.3)(@angular/core@18.0.3)(@angular/platform-browser@18.0.3)(rxjs@7.8.1):
@@ -662,7 +662,7 @@ packages:
       '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
       '@angular/platform-browser': 18.0.3(@angular/animations@18.0.3)(@angular/common@18.0.3)(@angular/core@18.0.3)
       rxjs: 7.8.1
-      tslib: 2.3.0
+      tslib: 2.6.3
     dev: false
 
   /@angular/language-service@18.0.3:
@@ -683,7 +683,7 @@ packages:
       '@angular/compiler': 18.0.3(@angular/core@18.0.3)
       '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
       '@angular/platform-browser': 18.0.3(@angular/animations@18.0.3)(@angular/common@18.0.3)(@angular/core@18.0.3)
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /@angular/platform-browser@18.0.3(@angular/animations@18.0.3)(@angular/common@18.0.3)(@angular/core@18.0.3):
     resolution: {integrity: sha512-1fl/oJOca8BLxLxN0EjwxQZ3xzn3PCCN96ytM54bjdEMiELz+0AcQe5GNKcVjXlwMkibRLl1BP5GIdvnQYqJRA==}
@@ -699,7 +699,7 @@ packages:
       '@angular/animations': 18.0.3(@angular/core@18.0.3)
       '@angular/common': 18.0.3(@angular/core@18.0.3)(rxjs@7.8.1)
       '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /@angular/router@18.0.3(@angular/common@18.0.3)(@angular/core@18.0.3)(@angular/platform-browser@18.0.3)(rxjs@7.8.1):
     resolution: {integrity: sha512-/cglLev0USxUNMc4M+EBFGrqw1EpKq87LUJL3+0Ztr012sVSeOU38ad41fs6pPcMBePBDZIw7KmSXypvUJJFMA==}
@@ -714,7 +714,7 @@ packages:
       '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
       '@angular/platform-browser': 18.0.3(@angular/animations@18.0.3)(@angular/common@18.0.3)(@angular/core@18.0.3)
       rxjs: 7.8.1
-      tslib: 2.3.0
+      tslib: 2.6.3
     dev: false
 
   /@babel/code-frame@7.24.7:
@@ -4076,33 +4076,33 @@ packages:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@jsonjoy.com/base64@1.1.2(tslib@2.3.0):
+  /@jsonjoy.com/base64@1.1.2(tslib@2.6.3):
     resolution: {integrity: sha512-q6XAnWQDIMA3+FTiOYajoYqySkO+JSat0ytXGSuRdq9uXE7o92gzuQwQM14xaCRlBLGq3v5miDGC4vkVTn54xA==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
     dependencies:
-      tslib: 2.3.0
+      tslib: 2.6.3
 
-  /@jsonjoy.com/json-pack@1.0.4(tslib@2.3.0):
+  /@jsonjoy.com/json-pack@1.0.4(tslib@2.6.3):
     resolution: {integrity: sha512-aOcSN4MeAtFROysrbqG137b7gaDDSmVrl5mpo6sT/w+kcXpWnzhMjmY/Fh/sDx26NBxyIE7MB1seqLeCAzy9Sg==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
     dependencies:
-      '@jsonjoy.com/base64': 1.1.2(tslib@2.3.0)
-      '@jsonjoy.com/util': 1.1.3(tslib@2.3.0)
+      '@jsonjoy.com/base64': 1.1.2(tslib@2.6.3)
+      '@jsonjoy.com/util': 1.1.3(tslib@2.6.3)
       hyperdyperid: 1.2.0
-      thingies: 1.21.0(tslib@2.3.0)
-      tslib: 2.3.0
+      thingies: 1.21.0(tslib@2.6.3)
+      tslib: 2.6.3
 
-  /@jsonjoy.com/util@1.1.3(tslib@2.3.0):
+  /@jsonjoy.com/util@1.1.3(tslib@2.6.3):
     resolution: {integrity: sha512-g//kkF4kOwUjemValCtOc/xiYzmwMRmWq3Bn+YnzOzuZLHq2PpMOxxIayN3cKbo7Ko2Np65t6D9H81IvXbXhqg==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
     dependencies:
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /@leichtgewicht/ip-codec@2.0.5:
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
@@ -4323,7 +4323,7 @@ packages:
     resolution: {integrity: sha512-bZ6d+x4mvt5H5S/kVVQjJGv+G/4nFsrxp+5T3o4JZInBZICXNnv12qnAsLxtP9QigdqLskZshqYNdlkdKNq6Eg==}
     dependencies:
       '@nx/angular': 19.3.0(@angular-devkit/build-angular@18.0.5)(@angular-devkit/core@18.0.5)(@angular-devkit/schematics@18.0.5)(@schematics/angular@18.0.5)(@swc-node/register@1.9.2)(@swc/core@1.6.3)(@types/node@18.19.37)(eslint@8.57.0)(nx@19.3.0)(rxjs@7.8.1)(typescript@5.4.5)
-      tslib: 2.3.0
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@angular-devkit/build-angular'
       - '@angular-devkit/core'
@@ -4428,7 +4428,7 @@ packages:
     hasBin: true
     dependencies:
       nx: 19.3.0(@swc-node/register@1.9.2)(@swc/core@1.6.3)
-      tslib: 2.3.0
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -4527,7 +4527,7 @@ packages:
       piscina: 4.5.1
       rxjs: 7.8.1
       semver: 7.6.2
-      tslib: 2.3.0
+      tslib: 2.6.3
       webpack: 5.92.0(@swc/core@1.6.3)
       webpack-merge: 5.10.0
     transitivePeerDependencies:
@@ -4573,7 +4573,7 @@ packages:
       nx: 19.3.0(@swc-node/register@1.9.2)(@swc/core@1.6.3)
       semver: 7.6.2
       tmp: 0.2.3
-      tslib: 2.3.0
+      tslib: 2.6.3
       yargs-parser: 21.1.1
 
   /@nx/eslint-plugin@19.3.0(@swc-node/register@1.9.2)(@swc/core@1.6.3)(@types/node@18.19.37)(@typescript-eslint/parser@7.13.1)(eslint-config-prettier@9.1.0)(eslint@8.57.0)(nx@19.3.0)(typescript@5.4.5):
@@ -4596,7 +4596,7 @@ packages:
       eslint-config-prettier: 9.1.0(eslint@8.57.0)
       jsonc-eslint-parser: 2.4.0
       semver: 7.6.2
-      tslib: 2.3.0
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -4625,7 +4625,7 @@ packages:
       '@nx/linter': 19.3.0(@swc-node/register@1.9.2)(@swc/core@1.6.3)(@types/node@18.19.37)(eslint@8.57.0)(nx@19.3.0)
       eslint: 8.57.0
       semver: 7.6.2
-      tslib: 2.3.0
+      tslib: 2.6.3
       typescript: 5.4.5
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -4662,7 +4662,7 @@ packages:
       jest-util: 29.7.0
       minimatch: 9.0.3
       resolve.exports: 1.1.0
-      tslib: 2.3.0
+      tslib: 2.6.3
       yargs-parser: 21.1.1
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -4716,7 +4716,7 @@ packages:
       source-map-support: 0.5.19
       ts-node: 10.9.1(@swc/core@1.6.3)(@types/node@18.19.37)(typescript@5.4.5)
       tsconfig-paths: 4.2.0
-      tslib: 2.3.0
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -4839,7 +4839,7 @@ packages:
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.4.5)
       '@playwright/test': 1.44.1
       minimatch: 9.0.3
-      tslib: 2.3.0
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -4864,7 +4864,7 @@ packages:
       chalk: 4.1.2
       detect-port: 1.6.1
       http-server: 14.1.1
-      tslib: 2.3.0
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -4913,7 +4913,7 @@ packages:
       terser-webpack-plugin: 5.3.10(@swc/core@1.6.3)(webpack@5.92.0)
       ts-loader: 9.5.1(typescript@5.4.5)(webpack@5.92.0)
       tsconfig-paths-webpack-plugin: 4.0.0
-      tslib: 2.3.0
+      tslib: 2.6.3
       webpack: 5.92.0(@swc/core@1.6.3)
       webpack-dev-server: 4.15.2(webpack@5.92.0)
       webpack-node-externals: 3.0.0
@@ -4955,7 +4955,7 @@ packages:
       chalk: 4.1.2
       enquirer: 2.3.6
       nx: 19.3.0(@swc-node/register@1.9.2)(@swc/core@1.6.3)
-      tslib: 2.3.0
+      tslib: 2.6.3
       yargs-parser: 21.1.1
     transitivePeerDependencies:
       - '@swc-node/register'
@@ -10591,7 +10591,7 @@ packages:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.3.0
+      tslib: 2.6.3
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -10608,7 +10608,7 @@ packages:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.3.0
+      tslib: 2.6.3
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -10927,10 +10927,10 @@ packages:
     resolution: {integrity: sha512-bsYSSnirtYTWi1+OPMFb0M048evMKyUYe0EbtuGQgq6BVQM1g1W8/KIUJCCvjgI/El0j6Q4WsmMiBwLUBSw8LA==}
     engines: {node: '>= 4.0.0'}
     dependencies:
-      '@jsonjoy.com/json-pack': 1.0.4(tslib@2.3.0)
-      '@jsonjoy.com/util': 1.1.3(tslib@2.3.0)
-      tree-dump: 1.0.1(tslib@2.3.0)
-      tslib: 2.3.0
+      '@jsonjoy.com/json-pack': 1.0.4(tslib@2.6.3)
+      '@jsonjoy.com/util': 1.1.3(tslib@2.6.3)
+      tree-dump: 1.0.1(tslib@2.6.3)
+      tslib: 2.6.3
 
   /meow@12.1.1:
     resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
@@ -11477,7 +11477,7 @@ packages:
       tar-stream: 2.2.0
       tmp: 0.2.3
       tsconfig-paths: 4.2.0
-      tslib: 2.3.0
+      tslib: 2.6.3
       yargs: 17.7.2
       yargs-parser: 21.1.1
     optionalDependencies:
@@ -12815,7 +12815,7 @@ packages:
   /rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
     dependencies:
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /safe-array-concat@1.1.2:
     resolution: {integrity: sha512-vj6RsCsWBCf19jIeHEfkRMw8DPiBb+DMXklQ/1SGDHOMlHdPUkZXFQ2YdplS23zESTijAcurb1aSgJA3AgMu1Q==}
@@ -13835,13 +13835,13 @@ packages:
   /text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
 
-  /thingies@1.21.0(tslib@2.3.0):
+  /thingies@1.21.0(tslib@2.6.3):
     resolution: {integrity: sha512-hsqsJsFMsV+aD4s3CWKk85ep/3I9XzYV/IXaSouJMYIoDlgyi11cBhsqYe9/geRfB0YIikBQg6raRaM+nIMP9g==}
     engines: {node: '>=10.18'}
     peerDependencies:
       tslib: ^2
     dependencies:
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
@@ -13905,13 +13905,13 @@ packages:
     dependencies:
       punycode: 2.3.1
 
-  /tree-dump@1.0.1(tslib@2.3.0):
+  /tree-dump@1.0.1(tslib@2.6.3):
     resolution: {integrity: sha512-WCkcRBVPSlHHq1dc/px9iOfqklvzCbdRwvlNfxGZsrHqf6aZttfPrd7DJTt6oR10dwUfpFFQeVTkPbBIZxX/YA==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
     dependencies:
-      tslib: 2.3.0
+      tslib: 2.6.3
 
   /tree-kill@1.2.2:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
@@ -14079,9 +14079,6 @@ packages:
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
-
-  /tslib@2.3.0:
-    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
