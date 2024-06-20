@@ -1,22 +1,11 @@
 plugins { }
 
-// IN root global settings
-// group = 'io.github.gipo999'
-// compileJava.options.encoding = "UTF-8"
-// compileTestJava.options.encoding = "UTF-8"
-// sourceCompatibility = 21
-// targetCompatibility = 21
-// java {
-// 	toolchain {
-// 		languageVersion = JavaLanguageVersion.of(21)
-// 	}
-// }
-
 project.webAppDirName = 'src/main/webapp'
 
 // TODO: what if different projects need different versions?
 // e.g different tomcat vers
 // different java vers
+// there is documentation on how to do this on the root gradle links
 dependencies {
 
 	//  NOTE: can import directly from the monorepo libs

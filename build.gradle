@@ -12,28 +12,112 @@ import jdk.tools.jlink.resources.plugins
 
 // NOTE: is there a better more modern way to do this to pass plugins down to subprojects?
 buildscript {
-  // needed for applying plugins to subprojects
-  // and for resolving plugins in root build.gradle
-  // NOTE: why?
-  repositories {
-    mavenCentral()
-    // provide gradle repo for plugins
-    maven {
-      url "https://plugins.gradle.org/m2/"
-    }
-    gradlePluginPortal()
-  }
+	// needed for applying plugins to subprojects
+	// and for resolving plugins in root build.gradle
+	// NOTE: why?
+	repositories {
+		mavenCentral()
+		// provide gradle repo for plugins
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+		gradlePluginPortal()
+	}
 
-  // TODO: why do we need to specify them here? can't we use them in plugins{}?
-  dependencies {
-    // classpath("org.openrewrite:plugin:6.16.0")
-    // classpath("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
-    // classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.17")
-    // classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
-    // classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
-    classpath(libs.bundles.tools)
-  }
+	// TODO: why do we need to specify them here? can't we use them in plugins{}?
+	dependencies {
+		// classpath("org.openrewrite:plugin:6.16.0")
+		// classpath("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
+		// classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.17")
+		// classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
+		// classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
+		classpath(libs.bundles.tools)
+	}
 }
+
+// we want to format root level files
+// how to prevent duplication of configs for root and subprojects?
+// do i need allprojects and subprojects?
+// do i need to define top level repositories?
+
+// TOP LEVEL CONFIG to format root level files
+plugins {
+	id 'com.diffplug.spotless' version '6.25.0'
+	id 'groovy'
+}
+repositories {
+	mavenCentral()
+}
+spotless {
+	format 'misc', {
+		target './*.gradle'
+
+		targetExclude commonExcludes
+
+		trimTrailingWhitespace()
+
+		indentWithTabs()
+
+		endWithNewline()
+	}
+
+	// format 'xml', {
+	// 	target '*.xml'
+	//
+	// 	targetExclude commonExcludes
+	//
+	// 	eclipseWtp('xml')
+	// }
+
+	// format 'styling', {
+	// 	targetExclude commonExcludes
+	//
+	// 	target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
+	//
+	// 	// TODO: can this be put in libs.version.toml?
+	// 	prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
+	// }
+
+	groovy {
+		    target './*.gradle'
+
+		importOrder()
+
+		removeSemicolons()
+
+		greclipse()
+
+		// Add a license header to all files
+		// licenseHeader('/* (C) $YEAR */') // or licenseHeaderFile
+	}
+
+	groovyGradle {
+		target './*.gradle'
+
+		targetExclude commonExcludes
+
+		greclipse()
+	}
+
+	// java {
+	// 	importOrder()
+	//
+	// 	removeUnusedImports()
+	//
+	// 	cleanthat()
+	//
+	// 	trimTrailingWhitespace()
+	//
+	// 	endWithNewline()
+	//
+	// 	googleJavaFormat()
+	//
+	// 	formatAnnotations()
+	//
+	// 	// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
+	// }
+} // ### SPOTLESS
+
 
 // https://github.com/openrewrite/rewrite/issues/1263
 
@@ -42,265 +126,259 @@ buildscript {
 // passing all those to subprojects
 subprojects {
 
-  // all subprojects will have those repos, no need to specify
-  repositories {
-    mavenCentral()
-    // gradlePluginPortal()
-  //   // gradle plugins
-  //   maven {
-  //     url "https://plugins.gradle.org/m2/"
-  //   }
-  }
-
-  // not working
-  // https://plugins.gradle.org/plugin/org.openrewrite.rewrite
-  // plugins {
-  //   id 'project-report'
-  //   id 'java'
-  //   id 'maven-publish'
-  //   id 'java-library'
-  //   id 'jacoco'
-  //   id 'groovy'
-  //   id 'checkstyle'
-  //   // id "com.vanniktech.maven.publish" version "0.28.0"
-  //   // id 'com.diffplug.spotless' version '6.25.0'
-  //   // id 'org.openrewrite.rewrite' version '6.16.0'
-  //   // id "com.github.spotbugs" version "6.0.17"
-  //   // id "name.remal.sonarlint" version "4.2.3"
-  //   // id 'info.solidsoft.pitest' version '1.15.0'
-  // }
-
-  // all subprojects will have those
-  apply {
-      plugin("java")
-      plugin("maven-publish")
-      plugin('java-library')
-      plugin("project-report")
-    	plugin('jacoco')
-      plugin('war')
-      plugin('idea')
-      plugin('eclipse')
-      plugin('checkstyle')
-      plugin('groovy')
-
-    // TODO: why those require classpath in buildscript?
-      plugin('org.openrewrite.rewrite')
-      // https://plugins.gradle.org/plugin/com.diffplug.gradle.spotless
-      plugin("com.diffplug.spotless")
-      plugin("com.github.spotbugs")
-      plugin("name.remal.sonarlint")
-      plugin('info.solidsoft.pitest')
-
-
-  }
-
-  // can test apply from
-  // WORKS
-  // Applying global settings
-  apply from: "${rootDir}/gradle/global-settings.gradle"
-    // compileTestJava.options.encoding = "UTF-8"
-    // compileJava.options.encoding = "UTF-8"
-    // sourceCompatibility = 21
-    // targetCompatibility = 21
-    // java {
-    //   toolchain {
-    //     languageVersion = JavaLanguageVersion.of(21)
-    //   }
-    // }
-
-
-  // apply compileTestJava.options.encoding = "UTF-8"
-
-  // TODO: can this be put in libs.version.toml?
-  dependencies {
-   //  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
-    testRuntimeOnly(libs.junit.engine)
-	  // testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
-    testImplementation(libs.junit.api)
+	// all subprojects will have those repos, no need to specify
+	repositories {
+		mavenCentral()
+		// gradlePluginPortal()
+		//   // gradle plugins
+		//   maven {
+		//     url "https://plugins.gradle.org/m2/"
+		//   }
+	}
+
+	// not working
+	// https://plugins.gradle.org/plugin/org.openrewrite.rewrite
+	// plugins {
+	//   id 'project-report'
+	//   id 'java'
+	//   id 'maven-publish'
+	//   id 'java-library'
+	//   id 'jacoco'
+	//   id 'groovy'
+	//   id 'checkstyle'
+	//   // id "com.vanniktech.maven.publish" version "0.28.0"
+	//   // id 'com.diffplug.spotless' version '6.25.0'
+	//   // id 'org.openrewrite.rewrite' version '6.16.0'
+	//   // id "com.github.spotbugs" version "6.0.17"
+	//   // id "name.remal.sonarlint" version "4.2.3"
+	//   // id 'info.solidsoft.pitest' version '1.15.0'
+	// }
+
+	// all subprojects will have those
+	apply {
+		plugin("java")
+		plugin("maven-publish")
+		plugin('java-library')
+		plugin("project-report")
+		plugin('jacoco')
+		plugin('war')
+		plugin('idea')
+		plugin('eclipse')
+		plugin('checkstyle')
+		plugin('groovy')
+
+		// TODO: why those require classpath in buildscript?
+		// https://plugins.gradle.org/plugin/com.diffplug.gradle.spotless
+		plugin('org.openrewrite.rewrite')
+		plugin("com.diffplug.spotless")
+		plugin("com.github.spotbugs")
+		plugin("name.remal.sonarlint")
+		plugin('info.solidsoft.pitest')
+	}
+
+	// can test apply from
+	// WORKS
+	// Applying global settings
+	apply from: "${rootDir}/gradle/global-settings.gradle"
+	// compileTestJava.options.encoding = "UTF-8"
+	// compileJava.options.encoding = "UTF-8"
+	// sourceCompatibility = 21
+	// targetCompatibility = 21
+	// java {
+	//   toolchain {
+	//     languageVersion = JavaLanguageVersion.of(21)
+	//   }
+	// }
+
+
+	// apply compileTestJava.options.encoding = "UTF-8"
+
+	dependencies {
+		//  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+		testRuntimeOnly(libs.junit.engine)
+		// testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+		testImplementation(libs.junit.api)
 
-    // tools
-    // rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.9.0")
-    rewrite(libs.rewrite.staticAnalysis)
-    // rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
-    rewrite(libs.rewrite.javaSecurity)
-  }
+		// tools
+		// rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.9.0")
+		rewrite(libs.rewrite.staticAnalysis)
+		// rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
+		rewrite(libs.rewrite.javaSecurity)
+	}
+
+	// ### SPOTLESS
+	spotless {
+		format 'misc', {
+			target '*.gradle'
+
+			targetExclude commonExcludes
+
+			trimTrailingWhitespace()
+
+			indentWithTabs()
+
+			endWithNewline()
+		}
+
+		format 'xml', {
+			target '*.xml'
+
+			targetExclude commonExcludes
+
+			eclipseWtp('xml')
+		}
 
-// ### SPOTLESS
-  spotless {
-    format 'misc', {
-      target '*.gradle'
+		format 'styling', {
+			targetExclude commonExcludes
 
-      targetExclude commonExcludes
+			target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
 
-      trimTrailingWhitespace()
+			// TODO: can this be put in libs.version.toml?
+			prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
+		}
 
-      indentWithTabs()
+		groovy {
+			importOrder()
 
-      endWithNewline()
-    }
+			removeSemicolons()
 
-    format 'xml', {
-      target '*.xml'
+			greclipse()
 
-      targetExclude commonExcludes
+			// Add a license header to all files
+			// licenseHeader('/* (C) $YEAR */') // or licenseHeaderFile
+		}
 
-      eclipseWtp('xml')
-    }
+		groovyGradle {
+			target '*.gradle'
 
-    format 'styling', {
-      targetExclude commonExcludes
+			targetExclude commonExcludes
 
-      target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
+			greclipse()
+		}
 
-      // TODO: can this be put in libs.version.toml?
-      prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
-	  }
+		java {
+			importOrder()
 
-    groovy {
-      importOrder()
+			removeUnusedImports()
 
-      removeSemicolons()
+			cleanthat()
 
-      greclipse()
+			trimTrailingWhitespace()
 
-      // Add a license header to all files
-      // licenseHeader('/* (C) $YEAR */') // or licenseHeaderFile
-    }
+			endWithNewline()
 
-    groovyGradle {
-      target '*.gradle'
+			googleJavaFormat()
 
-      targetExclude commonExcludes
+			formatAnnotations()
 
-      greclipse()
-    }
+			// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
+		}
+	} // ### SPOTLESS
 
-    java {
-      importOrder()
+	// ### REWRITE,
+	rewrite {
+		activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
 
-      removeUnusedImports()
+		activeRecipe("org.openrewrite.java.security.PartialPathTraversalVulnerability")
 
-      cleanthat()
+		activeRecipe("org.openrewrite.java.security.JavaSecurityBestPractices")
 
-      trimTrailingWhitespace()
+		activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
+	} // ### REWRITE
 
-      endWithNewline()
+	// ### CHECKSTYLE
+	checkstyle {
+		// toolVersion '10.17.0'
+		toolVersion = libs.versions.checkstyle.get()
+		configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
 
-      googleJavaFormat()
 
-      formatAnnotations()
+		// configDirectory = '../../checkstyle'
+		// configDirectory = file("../../checkstyle")
 
-      // licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
-    }
-  } // ### SPOTLESS
+		ignoreFailures = false
 
-  // ### REWRITE,
-  rewrite {
-    activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
+		maxWarnings = 0
+	} // ### CHECKSTYLE
 
-    activeRecipe("org.openrewrite.java.security.PartialPathTraversalVulnerability")
+	// ## JACOCO report for test coverage and codecov
+	// test {
+	//   finalizedBy jacocoTestReport
+	//
+	//   useJUnitPlatform()
+	// }
+	test {
+		// dependsOn 'check'
 
-    activeRecipe("org.openrewrite.java.security.JavaSecurityBestPractices")
+		finalizedBy jacocoTestReport
 
-    activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
-  } // ### REWRITE
+		useJUnitPlatform {
+			exclude("**/integration/**")
+		}
 
-  // ### CHECKSTYLE
-  checkstyle {
-    // toolVersion '10.17.0'
-    toolVersion = libs.versions.checkstyle.get()
-    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+		testLogging {
+			events "passed", "skipped", "failed"
+		}
+	}
 
+	jacocoTestReport {
+		dependsOn test
 
-    // configDirectory = '../../checkstyle'
-    // configDirectory = file("../../checkstyle")
+		reports {
+			xml.required = true
+		}
+	}
 
-    ignoreFailures = false
+	// ### PIT
+	pitest {
+		// junit5PluginVersion = '1.2.1'
+		junit5PluginVersion = libs.versions.junit5PluginVersion.get()
 
-    maxWarnings = 0
-  } // ### CHECKSTYLE
+		// pitestVersion = '1.15.2'
+		pitestVersion = libs.versions.pitestVersion.get()
+	}
 
-  // ## JACOCO report for test coverage and codecov
-  // test {
-  //   finalizedBy jacocoTestReport
-  //
-  //   useJUnitPlatform()
-  // }
-  test {
-    // dependsOn 'check'
+	// those are not picked up by nx must add them to project.json
+	// standardizing tasks across nx monorepo for both java and js
+	// to ease up CI/CD
+	// those tasks are given to all subprojects
+	tasks.register("fix") {
+		dependsOn "spotlessApply"
+		dependsOn "rewriteRun"
+	}
 
-    finalizedBy jacocoTestReport
+	// TODO: why do i manually have to add lint task in subproject project.json to make it work?
+	// why can't nx/gradle find this task
+	// e.g "lint": "./gradlew :libs:smispi:lint"
+	tasks.register("lint") {
+		dependsOn "check"
+	}
 
-    useJUnitPlatform {
-      exclude("**/integration/**")
-    }
+	tasks.register("buildWar") {
+		dependsOn "check"
+		dependsOn "test"
+		dependsOn "war"
+	}
 
-    testLogging {
-      events "passed", "skipped", "failed"
-    }
-  }
+	task cleanEclipse(type: Delete, overwrite: true) {
+		delete '.project'
 
-  jacocoTestReport {
-    dependsOn test
+		delete '.classpath'
 
-    reports {
-      xml.required = true
-    }
-  }
+		delete '.settings'
 
-  // ### PIT
-  pitest {
-    // TODO: put in libs.versions.toml
-    // junit5PluginVersion = '1.2.1'
-    junit5PluginVersion = libs.versions.junit5PluginVersion.get()
+		delete "bin"
+	}
 
-    // TODO: put in libs.versions.toml
-    // pitestVersion = '1.15.2'
-    pitestVersion = libs.versions.pitestVersion.get()
-  }
+	tasks.register('integrationTest', Test) {
+		group = 'verification'
 
-  // those are not picked up by nx must add them to project.json
-  // standardizing tasks across nx monorepo for both java and js
-  // to ease up CI/CD
-  // those tasks are given to all subprojects
-  tasks.register("fix") {
-    dependsOn "spotlessApply"
-    dependsOn "rewriteRun"
-  }
+		useJUnitPlatform {
+			include("**/integration/**")
+		}
 
-  // TODO: why do i manually have to add lint task in subproject project.json to make it work?
-  // why can't nx/gradle find this task
-  // e.g "lint": "./gradlew :libs:smispi:lint"
-  tasks.register("lint") {
-    dependsOn "check"
-  }
-
-  tasks.register("buildWar") {
-    dependsOn "check"
-    dependsOn "test"
-    dependsOn "war"
-  }
-
-  task cleanEclipse(type: Delete, overwrite: true) {
-    delete '.project'
-
-    delete '.classpath'
-
-    delete '.settings'
-
-    delete "bin"
-  }
-
-  tasks.register('integrationTest', Test) {
-    group = 'verification'
-
-    useJUnitPlatform {
-      include("**/integration/**")
-    }
-
-    testLogging {
-      events "passed", "skipped", "failed"
-    }
-  }
-
+		testLogging {
+			events "passed", "skipped", "failed"
+		}
+	}
 } // subprojects

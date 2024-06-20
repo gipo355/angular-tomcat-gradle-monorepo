@@ -1,5 +1,4 @@
 plugins {
-	// TODO: can this be put in libs.version.toml?
 	// id "com.vanniktech.maven.publish" version "0.28.0"
 	alias(libs.plugins.vanniktechPublish)
 }
@@ -11,7 +10,6 @@ dependencies {
 
 // ./gradlew -Pversion=${version} publish will set the version when publishing
 
-// def customGroupID = 'io.github.gipo999'
 def customGithubRepository = 'smispi'
 def customGithubOwner = 'gipo999'
 def customArtifactID = 'smispi'
@@ -26,20 +24,6 @@ def customSigningPublicKey = System.getenv('GPG_PUBLIC')
 def customSigningPassword = System.getenv('GPG_PASSWORD')
 def customGithubToken = System.getenv('GITHUB_TOKEN')
 def customGithubActor = System.getenv('GITHUB_ACTOR')
-
-// TODO: check if without group i can do it, if in root settings.gradle works
-// if variable can be passed from root
-// group = customGroupID
-// sourceCompatibility = 17
-// targetCompatibility = 17
-// compileJava.options.encoding = "UTF-8"
-// compileTestJava.options.encoding = "UTF-8"
-
-// java {
-// 	toolchain {
-// 		languageVersion = JavaLanguageVersion.of(17)
-// 	}
-// }
 
 import com.vanniktech.maven.publish.SonatypeHost
 mavenPublishing {
