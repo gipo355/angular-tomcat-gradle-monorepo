@@ -9,6 +9,8 @@
 // TODO: can this be put in libs.version.toml?
 plugins {
 	id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+  // doesn't work, possibly because this is loaded before loading the version catalog
+  // alias(libs.plugins.foojayResolver)
 }
 
 rootProject.name = 'angular-tomcat-gradle-monorepo'

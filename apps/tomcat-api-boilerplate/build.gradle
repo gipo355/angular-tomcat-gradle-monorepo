@@ -27,7 +27,7 @@ dependencies {
 
 	// compileOnly(group: 'org.apache.tomcat', name: 'tomcat-catalina', version: "${TOMCAT_VERSION}")
 	// compileOnly libs.bundles.tomcatApiServer
-	compileOnly libs.bundles.apiCompileOnly
+	compileOnly libs.bundles.tomcat.api.compileOnly
 
 	//  implementation(group: 'org.slf4j', name: 'slf4j-api', version: '2+')
 	//
@@ -46,10 +46,10 @@ dependencies {
 	// implementation(group: 'org.slf4j', name: 'slf4j-simple', version: '2+')
 	//
 	// implementation(group: 'com.google.code.gson', name: 'gson', version: "2+")
-	implementation libs.bundles.apiImplementation
+	implementation libs.bundles.tomcat.api.implementation
 
 	// testImplementation(group: 'org.glassfish.jersey.core', name: 'jersey-client', version: "${JERSEY_VERSION}")
-	testImplementation libs.bundles.apiTestImplementation
+	testImplementation libs.bundles.tomcat.api.testImplementation
 
 
 	//    implementation group: 'com.smi', name: 'smi-commons-gson', version: "${SMI_COMMONS}"

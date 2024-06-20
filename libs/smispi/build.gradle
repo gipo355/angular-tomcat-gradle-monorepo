@@ -1,7 +1,7 @@
 plugins {
-  // TODO: can this be put in libs.version.toml?
+	// TODO: can this be put in libs.version.toml?
 	// id "com.vanniktech.maven.publish" version "0.28.0"
-  alias(libs.plugins.vanniktechPublish)
+	alias(libs.plugins.vanniktechPublish)
 }
 
 dependencies {

@@ -23,13 +23,14 @@ buildscript {
   }
 
   // TODO: can this be put in libs.version.toml?
+  // TODO: why do we need to specify them here? can't we use them in plugins{}?
   dependencies {
-    // classpath("org.openrewrite:rewrite-gradle-plugin:6.16.0")
-    classpath("org.openrewrite:plugin:6.16.0")
-    classpath("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
-    classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.17")
-    classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
-    classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
+    // classpath("org.openrewrite:plugin:6.16.0")
+    // classpath("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
+    // classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.17")
+    // classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
+    // classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
+    classpath(libs.bundles.tools)
   }
 }
 
@@ -81,6 +82,7 @@ subprojects {
       plugin('checkstyle')
       plugin('groovy')
 
+    // TODO: why those require classpath in buildscript?
       plugin('org.openrewrite.rewrite')
       // https://plugins.gradle.org/plugin/com.diffplug.gradle.spotless
       plugin("com.diffplug.spotless")
@@ -92,13 +94,16 @@ subprojects {
 
   // TODO: can this be put in libs.version.toml?
   dependencies {
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
-	  testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+   //  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+    testRuntimeOnly(libs.junit.engine)
+	  // testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+    testImplementation(libs.junit.api)
 
     // tools
-    rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.9.0")
-
-    rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
+    // rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.9.0")
+    rewrite(libs.rewrite.staticAnalysis)
+    // rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
+    rewrite(libs.rewrite.javaSecurity)
   }
 
 // ### SPOTLESS
