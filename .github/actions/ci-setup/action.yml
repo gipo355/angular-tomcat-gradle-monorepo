@@ -66,6 +66,9 @@ runs:
     - name: Install Nx CLI
       shell: bash
       run: npm install -g nx@latest
+    - name: install tsx
+      shell: bash
+      run: npm install -g tsx
     # install dependencies
     - name: Install dependencies
       shell: bash
