@@ -22,8 +22,8 @@ jobs:
           fetch-depth: 0
           lfs: true
           # persist-credentials: false
-      # - name: Setup CI Environment
-      #   uses: ./.github/actions/ci-setup
+      - name: Setup CI Environment
+        uses: ./.github/actions/ci-setup
       - name: create npmrc step
         run: |
           # cat << EOF > .npmrc "$HOME/.npmrc"
@@ -47,6 +47,7 @@ jobs:
           publish: pnpm changeset-publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # npm token to publish nodejs libs
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           # print environment info
           # - name: Print Environment Info step
