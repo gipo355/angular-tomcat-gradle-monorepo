@@ -39,10 +39,6 @@
           {
             "glob": "**/*",
             "input": "apps/angular-test-app/public"
-          },
-          {
-            "glob": "Dockerfile",
-            "input": "apps/angular-test-app/docker"
           }
         ],
         "styles": ["apps/angular-test-app/src/styles.scss"],
