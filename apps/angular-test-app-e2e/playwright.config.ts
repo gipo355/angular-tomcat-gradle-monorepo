@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-module */
 import { workspaceRoot } from '@nx/devkit';
 import { nxE2EPreset } from '@nx/playwright/preset';
 import { defineConfig, devices } from '@playwright/test';
