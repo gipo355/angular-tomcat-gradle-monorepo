@@ -1,0 +1,79 @@
+# https://github.com/changesets/action
+name: Release Workflow
+on:
+  push:
+    branches:
+      - main
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+jobs:
+  release:
+    # if: (github.actor != 'dependabot[bot]') && (github.actor != 'renovate[bot]')
+    name: Release Job
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        with:
+          fetch-depth: 0
+          lfs: true
+          # persist-credentials: false
+      # - name: Setup CI Environment
+      #   uses: ./.github/actions/ci-setup
+      - name: create npmrc step
+        run: |
+          # cat << EOF > .npmrc "$HOME/.npmrc"
+          #   //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          # EOF
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # create release pull request
+      # this action will create a pull request with all the changesets if there are any in the base branch
+      # else it will publish if specified
+      - name: Create Release Pull Request step
+        uses: changesets/action@v1
+        id: changesets
+        with:
+          commit: 'chore: changeset release'
+          title: 'chore: changeset release'
+          # with publish, it will run the cmd if there are no changesets
+          # publish: npx nx release publish
+          # publish: pnpm ci:publish
+          publish: pnpm changeset-publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # print environment info
+          # - name: Print Environment Info step
+          #   run: npx nx report
+          #   shell: bash
+          # publish release
+          # example 1
+          # - name: Publish packages
+          #   if: steps.changesets.outputs.hasChangesets == 'false'
+          #   run: npx nx release publish
+          #   shell: bash
+          #   env:
+          #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          #     NPM_CONFIG_PROVENANCE: true # works only if repo is public
+          # example 2
+          # - name: Publish Release step
+          #   if: steps.changesets.outputs.hasChangesets == 'false'
+          #   run: echo "publishing"
+          #   # run: pnpm ci:publish
+          #   # run: nx release publish
+          #   # NX   Running target nx-release-publish for 3 projects:
+          # notify
+          # - name: Send a Slack notification if a publish happens step
+          #   if: steps.changesets.outputs.published == 'true'
+          # You can do something when a publish happens.
+          # also have access to the published packages
+          # steps.changesets.outputs.publishedPackages == [{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]
+          # run: echo "A new version of ${GITHUB_REPOSITORY} was published!"
+          # my-slack-bot send-notification --message "A new version of
+          # ${GITHUB_REPOSITORY} was published!"

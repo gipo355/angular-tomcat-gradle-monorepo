@@ -1,0 +1,5 @@
+# required for changesets to detect subprojects
+packages:
+  - 'packages/*'
+  - 'apps/*'
+  - 'libs/*'
