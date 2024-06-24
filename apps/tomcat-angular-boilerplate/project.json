@@ -17,7 +17,7 @@
         "command": "mkdir -p dist/apps/tomcat-angular-boilerplate && cp -r dist/apps/angular-test-app dist/apps/tomcat-angular-boilerplate && cp -r apps/tomcat-angular-boilerplate/* dist/apps/tomcat-angular-boilerplate"
       }
     },
-    "build": {
+    "build-docker": {
       "dependsOn": ["prepare-env"],
       "executor": "nx:run-commands",
       "options": {
@@ -26,7 +26,7 @@
       }
     },
     "serve": {
-      "dependsOn": ["build"],
+      "dependsOn": ["build-docker"],
       "executor": "nx:run-commands",
       "options": {
         "command": "docker run --network=host gipo355/tomcat-angular-boilerplate"

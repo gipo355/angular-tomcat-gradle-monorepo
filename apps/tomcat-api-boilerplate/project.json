@@ -13,15 +13,14 @@
       ],
       "executor": "nx:run-commands",
       "options": {
-        "command": "mkdir -p dist/apps/tomcat-api-boilerplate/wars && cp -r dist/libs/jakarta-base-rest/* dist/apps/tomcat-api-boilerplate/wars && cp -r apps/tomcat-api-boilerplate/* dist/apps/tomcat-api-boilerplate"
+        "command": "mkdir -p dist/apps/tomcat-api-boilerplate/wars && cp -r apps/tomcat-api-boilerplate/* dist/apps/tomcat-api-boilerplate"
       }
     },
-    "build": {
+    "build-docker": {
       "dependsOn": ["prepare-env"],
       "executor": "nx:run-commands",
       "options": {
-        "command": "docker buildx build -t gipo355/tomcat-api-boilerplate -f Dockerfile . --load",
-        "cwd": "dist/apps/tomcat-api-boilerplate"
+        "command": "docker buildx build -t gipo355/tomcat-api-boilerplate -f apps/tomcat-api-boilerplate/Dockerfile . --load"
       }
     },
     "compose": {
@@ -32,7 +31,7 @@
       }
     },
     "serve": {
-      "dependsOn": ["build"],
+      "dependsOn": ["build-docker"],
       "executor": "nx:run-commands",
       "options": {
         "command": "docker run --network=host gipo355/tomcat-api-boilerplate"
