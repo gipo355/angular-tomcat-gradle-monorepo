@@ -3,7 +3,8 @@
 name: Setup CI
 inputs:
   install_scripts:
-    desc: 'Whether to install scripts while installing node packages or not'
+    description:
+      'Whether to install scripts while installing node packages or not'
     required: false
     default: true
 runs:
@@ -52,6 +53,9 @@ runs:
     # install dependencies
     - name: Install dependencies
       shell: bash
-      run:
-        pnpm install --frozen-lockfile ${{ inputs.install_scripts == 'true' &&
-        "--ignore-scripts" || "" }}
+      run: |
+        if [[ "${{ inputs.install_scripts }}" == "true" ]]; then
+          pnpm install --frozen-lockfile
+        else
+          pnpm install --frozen-lockfile --ignore-scripts
+        fi
