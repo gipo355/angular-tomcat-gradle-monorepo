@@ -1,0 +1,62 @@
+name: Lint Test Build Workflow
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  workflow_dispatch: {}
+jobs:
+  LintTestBuild:
+    permissions:
+      # Needed for nx-set-shas when run on the main branch
+      actions: read
+      contents: read
+    name: Lint Test Build Job
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      # checkout
+      - name: Checkout Repo
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        with:
+          fetch-depth: 0
+          lfs: true
+          # persist-credentials: false
+      - uses: ./.github/actions/ci-setup-node
+        name: Setup CI environment node
+      - uses: ./.github/actions/ci-setup-java
+        name: Setup CI environment java
+      # testing nx affected
+      - name:
+          Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@40f1175ceec169e68c9857c27aa7c5063692aa9a # v4
+        with:
+          # must compare to branch
+          main-branch-name: 'main'
+      - run: |
+          echo "BASE: ${{ env.NX_BASE }}"
+          echo "HEAD: ${{ env.NX_HEAD }}"
+      - name: Set up main branch for affected commands in PR
+        run: git branch --track main origin/main
+        if: ${{ github.event_name == 'pull_request' }}
+      # run affected or run-many commands
+      - name: lint
+        run: nx run-many -t lint
+      - name: test
+        run: nx run-many -t test
+      - name: build
+        run: nx run-many -t build
+      # TODO: smoke-tests are quick e2e tests that make sure basic functionality works before launching more expensive tests
+      # - name: smoke-test
+      #   run: nx run-many -t smoke-test
+      # TODO: e2e tests which enable vuln assessments, working tomcats, etc.
+      # - name: e2e
+      #   run: nx run-many -t e2e
+      - name: Upload coverage reports to Codecov
+        if:
+          (github.actor != 'dependabot[bot]') && (github.actor !=
+          'renovate[bot]')
+        uses: codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673 # v4.5.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
