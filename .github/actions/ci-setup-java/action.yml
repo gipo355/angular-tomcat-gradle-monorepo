@@ -1,0 +1,15 @@
+# Composite private action to setup the CI environment with all the tools needed for the project.
+# We could install pre-commit too here
+name: Setup CI
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9 # v4
+      name: Setup Java Step
+      with:
+        distribution: temurin
+        java-version: 21
+    - name: Setup Gradle Step
+      uses: gradle/actions/setup-gradle@db19848a5fa7950289d3668fb053140cf3028d43 # v3
+      with:
+        gradle-version: 8.7

@@ -23,7 +23,9 @@ jobs:
           lfs: true
           # persist-credentials: false
       - name: Setup CI Environment
-        uses: ./.github/actions/ci-setup
+        uses: ./.github/actions/ci-setup-node
+        with:
+          install_scripts: false
       - name: create npmrc step
         run: |
           # cat << EOF > .npmrc "$HOME/.npmrc"
