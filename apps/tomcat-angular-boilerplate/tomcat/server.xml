@@ -122,6 +122,9 @@
 					directory="logs" prefix="localhost_access_log" suffix=".txt"
 					pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 
+        <!-- Rewrite valve, to support Angular routing -->
+        <Valve className="org.apache.catalina.valves.rewrite.RewriteValve" />
+
 			</Host>
 		</Engine>
 	</Service>
