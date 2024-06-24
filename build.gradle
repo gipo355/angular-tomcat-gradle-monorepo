@@ -231,14 +231,14 @@ subprojects {
 			eclipseWtp('xml')
 		}
 
-		format 'styling', {
-			targetExclude commonExcludes
-
-			target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
-
-			// TODO: can this be put in libs.version.toml?
-			prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
-		}
+		// format 'styling', {
+		// 	targetExclude commonExcludes
+		//
+		// 	target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
+		//
+		// 	// TODO: can this be put in libs.version.toml?
+		// 	prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
+		// }
 
 		groovy {
 			importOrder()
