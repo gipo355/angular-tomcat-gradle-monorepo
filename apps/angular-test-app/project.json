@@ -31,6 +31,7 @@
         "outputPath": "dist/apps/angular-test-app",
         "index": "apps/angular-test-app/src/index.html",
         "browser": "apps/angular-test-app/src/main.ts",
+        "baseHref": "/angular-test-app/",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/angular-test-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
@@ -38,6 +39,10 @@
           {
             "glob": "**/*",
             "input": "apps/angular-test-app/public"
+          },
+          {
+            "glob": "Dockerfile",
+            "input": "apps/angular-test-app/docker"
           }
         ],
         "styles": ["apps/angular-test-app/src/styles.scss"],
