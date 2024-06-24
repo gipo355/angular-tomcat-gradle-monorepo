@@ -169,8 +169,8 @@ importers:
         specifier: 17.9.0
         version: 17.9.0(eslint@9.5.0)
       eslint-plugin-playwright:
-        specifier: 0.22.2
-        version: 0.22.2(eslint@9.5.0)
+        specifier: 1.6.2
+        version: 1.6.2(eslint@9.5.0)
       eslint-plugin-simple-import-sort:
         specifier: 12.1.0
         version: 12.1.0(eslint@9.5.0)
@@ -3993,10 +3993,11 @@ packages:
     peerDependencies:
       eslint: '>=8.23.0'
 
-  eslint-plugin-playwright@0.22.2:
-    resolution: {integrity: sha512-LtOB9myIX1O7HHqg9vtvBLjvXq1MXKuXIcD1nS+qZiMUJV6s9HBdilURAr9pIFc9kEelbVF54hOJ8pMxHvJP7g==}
+  eslint-plugin-playwright@1.6.2:
+    resolution: {integrity: sha512-mraN4Em3b5jLt01q7qWPyLg0Q5v3KAWfJSlEWwldyUXoa7DSPrBR4k6B6LROLqipsG8ndkwWMdjl1Ffdh15tag==}
+    engines: {node: '>=16.6.0'}
     peerDependencies:
-      eslint: '>=7'
+      eslint: '>=8.40.0'
       eslint-plugin-jest: '>=25'
     peerDependenciesMeta:
       eslint-plugin-jest:
@@ -13152,7 +13153,7 @@ snapshots:
       minimatch: 9.0.4
       semver: 7.6.2
 
-  eslint-plugin-playwright@0.22.2(eslint@9.5.0):
+  eslint-plugin-playwright@1.6.2(eslint@9.5.0):
     dependencies:
       eslint: 9.5.0
       globals: 13.24.0
