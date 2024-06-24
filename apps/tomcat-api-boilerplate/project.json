@@ -4,6 +4,26 @@
   "root": "apps/tomcat-api-boilerplate",
   "projectType": "application",
   "targets": {
+    "prepare-env": {
+      "dependsOn": [
+        {
+          "projects": ["jakarta-base-rest"],
+          "target": "build"
+        }
+      ],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "mkdir -p dist/apps/tomcat-api-boilerplate/wars && cp -r dist/libs/jakarta-base-rest/* dist/apps/tomcat-api-boilerplate/wars && cp -r apps/tomcat-api-boilerplate/* dist/apps/tomcat-api-boilerplate"
+      }
+    },
+    "build": {
+      "dependsOn": ["prepare-env"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker buildx build -t gipo355/tomcat-api-boilerplate -f Dockerfile . --load",
+        "cwd": "dist/apps/tomcat-api-boilerplate"
+      }
+    },
     "compose": {
       "executor": "nx:run-commands",
       "options": {
@@ -11,97 +31,11 @@
         "cwd": "apps/tomcat-api-boilerplate"
       }
     },
-    "lint": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "./gradlew :apps:tomcat-api-boilerplate:lint"
-      }
-    },
-    "fix": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "./gradlew :apps:tomcat-api-boilerplate:fix"
-      }
-    },
     "serve": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "docker-compose -f apps/tomcat-api-boilerplate/compose.dev.yml up --no-recreate --watch & nodemon --watch apps/tomcat-api-boilerplate/src --ext '.java' --exec './gradlew :apps:tomcat-api-boilerplate:war'"
-      }
-    },
-    "docker-compose2": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "docker-compose up -d --no-recreate",
-        "cwd": "apps/example-go-app"
-      }
-    },
-    "build2": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "../../gradlew build",
-        "cwd": "apps/tomcat-api-boilerplate"
-      }
-    },
-    "preview2": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "infisical run -- task preview -- ",
-        "cwd": "apps/example-go-app"
-      }
-    },
-    "run2": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "infisical run -- task run -- ",
-        "cwd": "apps/example-go-app"
-      }
-    },
-    "lint2": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "task lint -- ",
-        "cwd": "apps/example-go-app"
-      }
-    },
-    "fix2": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "../../gradlew spotlessApply && ../../gradlew rewriteRun",
-        "cwd": "apps/tomcat-api-boilerplate"
-      }
-    },
-    "release2": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "task release -- ",
-        "cwd": "apps/example-go-app"
-      }
-    },
-    "test2": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "task test -- ",
-        "cwd": "apps/example-go-app"
-      }
-    },
-    "docker-build2": {
       "dependsOn": ["build"],
-      "command": "docker build -f apps/example-go-app/Dockerfile . -t example-go-app"
-    },
-    "init2": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "task init -- ",
-        "cwd": "apps/example-go-app"
-      }
-    },
-    "dev2": {
-      "executor": "nx:run-commands",
-      "dependsOn": ["docker-compose"],
-      "options": {
-        "command": "infisical run -- task dev -- ",
-        "cwd": "apps/example-go-app"
+        "command": "docker run --network=host gipo355/tomcat-api-boilerplate"
       }
     }
   }

@@ -20,8 +20,8 @@ rootProject.name = 'angular-tomcat-gradle-monorepo'
 // avoid phantom dirs
 include(':libs:smispi')
 project(':libs:smispi').projectDir = file('libs/smispi')
-include(':apps:tomcat-api-boilerplate')
-project(':apps:tomcat-api-boilerplate').projectDir = file('apps/tomcat-api-boilerplate')
+include(':libs:jakarta-base-rest')
+project(':libs:jakarta-base-rest').projectDir = file('libs/jakarta-base-rest')
 
 // sharing dependencies between subprojects
 // https://docs.gradle.org/current/userguide/platforms.html
