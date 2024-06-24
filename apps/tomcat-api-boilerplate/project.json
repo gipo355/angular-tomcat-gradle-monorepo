@@ -13,7 +13,7 @@
       ],
       "executor": "nx:run-commands",
       "options": {
-        "command": "mkdir -p dist/apps/tomcat-api-boilerplate/wars && cp -r apps/tomcat-api-boilerplate/* dist/apps/tomcat-api-boilerplate"
+        "command": "mkdir -p dist/apps/tomcat-api-boilerplate && cp -r apps/tomcat-api-boilerplate/* dist/apps/tomcat-api-boilerplate"
       }
     },
     "build-docker": {

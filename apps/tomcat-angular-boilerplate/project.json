@@ -14,15 +14,14 @@
       ],
       "executor": "nx:run-commands",
       "options": {
-        "command": "mkdir -p dist/apps/tomcat-angular-boilerplate && cp -r dist/apps/angular-test-app dist/apps/tomcat-angular-boilerplate && cp -r apps/tomcat-angular-boilerplate/* dist/apps/tomcat-angular-boilerplate"
+        "command": "mkdir -p dist/apps/tomcat-angular-boilerplate && cp -r apps/tomcat-angular-boilerplate/* dist/apps/tomcat-angular-boilerplate"
       }
     },
     "build-docker": {
       "dependsOn": ["prepare-env"],
       "executor": "nx:run-commands",
       "options": {
-        "command": "docker buildx build -t gipo355/tomcat-angular-boilerplate -f Dockerfile . --load",
-        "cwd": "dist/apps/tomcat-angular-boilerplate"
+        "command": "docker buildx build -t gipo355/tomcat-angular-boilerplate -f dist/apps/tomcat-angular-boilerplate/Dockerfile . --load"
       }
     },
     "serve": {
