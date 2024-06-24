@@ -62,7 +62,7 @@ rewrite-javaSecurity = { group = "org.openrewrite.recipe", name = "rewrite-java-
 # classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.17")
 # classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
 # classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
-rewrite-plugin = { group = "org.openrewrite", name = "plugin", version = "6.16.0" }
+rewrite-plugin = { group = "org.openrewrite", name = "plugin", version = "6.16.2" }
 spotless-plugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version = "6.25.0" }
 spotbugs-plugin = { group = "com.github.spotbugs.snom", name = "spotbugs-gradle-plugin", version = "6.0.18" }
 sonarlint-plugin = { group = "name.remal.gradle-plugins.sonarlint", name = "sonarlint", version = "4.2.4" }
