@@ -18,7 +18,7 @@ jakarta = "2+"
 gson = "2+"
 groovyJson = "3.0.21"
 
-jupiter = '5.10.2'
+jupiter = '5.10.3'
 
 [libraries]
 # groovy-core = { module = "org.codehaus.groovy:groovy", version.ref = "groovy" }
