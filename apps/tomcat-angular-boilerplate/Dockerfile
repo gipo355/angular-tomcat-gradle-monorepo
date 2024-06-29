@@ -1,4 +1,4 @@
-FROM tomcat:9-jdk21@sha256:89f53b8cc6e34622b9c486b6bf366f06703aae873d0ca08f00f53fc7fd407f71
+FROM tomcat:10-jdk21@sha256:7da39e08ce940943ee3fdf59e580fcfeb7ede1d77a341b80189fccdedc512bd4
 
 RUN mkdir -p /usr/local/tomcat/webapps/angular-test-app
 
