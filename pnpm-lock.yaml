@@ -184,8 +184,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
       eslint-plugin-simple-import-sort:
-        specifier: 12.1.0
-        version: 12.1.0(eslint@9.6.0)
+        specifier: 12.1.1
+        version: 12.1.1(eslint@9.6.0)
       eslint-plugin-typescript-sort-keys:
         specifier: 3.2.0
         version: 3.2.0(@typescript-eslint/parser@7.15.0(eslint@9.6.0)(typescript@5.4.5))(eslint@9.6.0)(typescript@5.4.5)
@@ -4077,8 +4077,8 @@ packages:
     resolution: {integrity: sha512-XjVGBhtDZJfyuhIxnQ/WMm385RbX3DBu7H1J7HNNhmB2tnGxMeqVSnYv79oAj992ayvIBZghsymwkYFS6cGH4Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  eslint-plugin-simple-import-sort@12.1.0:
-    resolution: {integrity: sha512-Y2fqAfC11TcG/WP3TrI1Gi3p3nc8XJyEOJYHyEPEGI/UAgNx6akxxlX74p7SbAQdLcgASKhj8M0GKvH3vq/+ig==}
+  eslint-plugin-simple-import-sort@12.1.1:
+    resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
     peerDependencies:
       eslint: '>=5.0.0'
 
@@ -13336,7 +13336,7 @@ snapshots:
     dependencies:
       safe-regex: 2.1.1
 
-  eslint-plugin-simple-import-sort@12.1.0(eslint@9.6.0):
+  eslint-plugin-simple-import-sort@12.1.1(eslint@9.6.0):
     dependencies:
       eslint: 9.6.0
 
