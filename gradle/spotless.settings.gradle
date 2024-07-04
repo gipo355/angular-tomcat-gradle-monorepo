@@ -1,67 +1,67 @@
-	spotless {
-		format 'misc', {
-			target '*.gradle'
+spotless {
+	format 'misc', {
+		target '*.gradle'
 
-			targetExclude commonExcludes
+		targetExclude commonExcludes
 
-			trimTrailingWhitespace()
+		trimTrailingWhitespace()
 
-			indentWithTabs()
+		indentWithTabs()
 
-			endWithNewline()
-		}
+		endWithNewline()
+	}
 
-		format 'xml', {
-			target '*.xml'
+	format 'xml', {
+		target '*.xml'
 
-			targetExclude commonExcludes
+		targetExclude commonExcludes
 
-			eclipseWtp('xml')
-		}
+		eclipseWtp('xml')
+	}
 
-		// format 'styling', {
-		// 	targetExclude commonExcludes
-		//
-		// 	target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
-		//
-		// 	// TODO: can this be put in libs.version.toml?
-		// 	prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
-		// }
+	// format 'styling', {
+	// 	targetExclude commonExcludes
+	//
+	// 	target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
+	//
+	// 	// TODO: can this be put in libs.version.toml?
+	// 	prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
+	// }
 
-		groovy {
-			importOrder()
+	groovy {
+		importOrder()
 
-			removeSemicolons()
+		removeSemicolons()
 
-			greclipse()
+		greclipse()
 
-			// Add a license header to all files
-			// licenseHeader('/* (C) $YEAR */') // or licenseHeaderFile
-		}
+		// Add a license header to all files
+		// licenseHeader('/* (C) $YEAR */') // or licenseHeaderFile
+	}
 
-		groovyGradle {
-			target '*.gradle'
+	groovyGradle {
+		target '*.gradle'
 
-			targetExclude commonExcludes
+		targetExclude commonExcludes
 
-			greclipse()
-		}
+		greclipse()
+	}
 
-		java {
-			importOrder()
+	java {
+		importOrder()
 
-			removeUnusedImports()
+		removeUnusedImports()
 
-			cleanthat()
+		cleanthat()
 
-			trimTrailingWhitespace()
+		trimTrailingWhitespace()
 
-			endWithNewline()
+		endWithNewline()
 
-			googleJavaFormat()
+		googleJavaFormat()
 
-			formatAnnotations()
+		formatAnnotations()
 
-			// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
-		}
-	} // ### SPOTLESS
+		// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
+	}
+} // ### SPOTLESS

@@ -16,9 +16,9 @@ compileJava.options.encoding = "UTF-8"
 sourceCompatibility = 21
 targetCompatibility = 21
 java {
-  toolchain {
-    languageVersion = JavaLanguageVersion.of(21)
-  }
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
 }
 group = "io.github.gipo999"
 
@@ -54,12 +54,12 @@ def packageSlurper = new JsonSlurper()
 // }
 
 // https://stackoverflow.com/questions/50016599/how-to-define-function-in-external-file
-ext.getVersionFromNpm = { ->
-    //  Read and parse package.json file from project root
-    def inputFile = new File("$projectDir/package.json")
-    def packageJson = new JsonSlurper().parseText(inputFile.text)
+ext.getVersionFromNpm = {
+	->
+	//  Read and parse package.json file from project root
+	def inputFile = new File("$projectDir/package.json")
+	def packageJson = new JsonSlurper().parseText(inputFile.text)
 
-    // Return the version, you can get any value this way
-    return packageJson["version"]
+	// Return the version, you can get any value this way
+	return packageJson["version"]
 }
-

@@ -9,34 +9,33 @@
 // those tasks are given to all subprojects
 
 test {
-  // dependsOn 'check'
+	// dependsOn 'check'
 
-  finalizedBy jacocoTestReport
+	finalizedBy jacocoTestReport
 
-  useJUnitPlatform {
-    exclude("**/integration/**")
-  }
+	useJUnitPlatform {
+		exclude("**/integration/**")
+	}
 
-  testLogging {
-    events "passed", "skipped", "failed"
-  }
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
 }
 
 // ## JACOCO report for test coverage and codecov
 jacocoTestReport {
-  dependsOn test
+	dependsOn test
 
-  reports {
-    xml.required = true
-  }
+	reports {
+		xml.required = true
+	}
 }
 
 // ### PIT
 pitest {
-  // junit5PluginVersion = '1.2.1'
-  junit5PluginVersion = libs.versions.junit5PluginVersion.get()
+	// junit5PluginVersion = '1.2.1'
+	junit5PluginVersion = libs.versions.junit5PluginVersion.get()
 
-  // pitestVersion = '1.15.2'
-  pitestVersion = libs.versions.pitestVersion.get()
+	// pitestVersion = '1.15.2'
+	pitestVersion = libs.versions.pitestVersion.get()
 }
-
