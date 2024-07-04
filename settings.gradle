@@ -26,21 +26,21 @@ fileTree('.').visit { FileVisitDetails details ->
 	if (details.file.isDirectory()) {
 		if (file("$details.file/build.gradle").exists()) {
 
-      // this will produce :appname, i want :dir:appname
+			// this will produce :appname, i want :dir:appname
 
-      include ":${details.file.parentFile.name}:${details.file.name}"
-      project(":${details.file.parentFile.name}:${details.file.name}").projectDir = details.file
-
-
+			include ":${details.file.parentFile.name}:${details.file.name}"
+			project(":${details.file.parentFile.name}:${details.file.name}").projectDir = details.file
 
 
-      // include ":${details.file.name}"
-      // project(":${details.file.name}").projectDir = details.file
 
-      // get the absolute path of the dir, remove the ./ prefix
-      // this will produce :dir:appname
-      // include ":${details.file.getCanonicalPath().substring(2)}"
-      // project(":${details.file.getCanonicalPath().substring(2)}").projectDir = details.file
+
+			// include ":${details.file.name}"
+			// project(":${details.file.name}").projectDir = details.file
+
+			// get the absolute path of the dir, remove the ./ prefix
+			// this will produce :dir:appname
+			// include ":${details.file.getCanonicalPath().substring(2)}"
+			// project(":${details.file.getCanonicalPath().substring(2)}").projectDir = details.file
 
 
 
