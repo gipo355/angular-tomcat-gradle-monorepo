@@ -32,7 +32,6 @@ buildscript {
 		// classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
 		// classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
 		classpath(libs.bundles.tools)
-
 	}
 }
 
@@ -44,74 +43,70 @@ buildscript {
 // TOP LEVEL CONFIG to format root level files
 // TODO: format root level files with :task
 plugins {
-    id 'project-report'
-  // id 'com.diffplug.spotless' version '6.25.0'
-	  // id 'groovy'
+	id 'project-report'
+	// id 'org.openrewrite.rewrite' version '6.16.0'
+
+	// id "com.diffplug.spotless"
+	id 'com.diffplug.spotless' version '6.25.0'
+	id 'groovy'
 }
-//
+
+def TARGET = "$rootDir/build.gradle, $rootDir/settings.gradle, $rootDir/gradle.properties, $rootDir/gradle/*.gradle"
+
+repositories {
+	mavenCentral()
+	// gradlePluginPortal()
+	//   // gradle plugins
+	//   maven {
+	//     url "https://plugins.gradle.org/m2/"
+	//   }
+}
+
+
+
 // repositories {
 // 	mavenCentral()
 // }
-// spotless {
-// 	format 'misc', {
-// 		target './*.gradle'
-//
-// 		targetExclude commonExcludes
-//
-// 		trimTrailingWhitespace()
-//
-// 		indentWithTabs()
-//
-// 		endWithNewline()
-// 	}
-// 	// format 'styling', {
-// 	// 	targetExclude commonExcludes
-// 	//
-// 	// 	target  '**/*.json', '**/*.yaml', '**/*.toml', '**/*.js', '**/*.cjs', '**/*.mjs'
-// 	//
-// 	// 	// TODO: can this be put in libs.version.toml?
-// 	// 	prettier(['prettier-plugin-toml': '2.0.1']).config(['plugins': ['prettier-plugin-toml']])
-// 	// }
-//
-//   groovy   {
-// 		target './*.gradle'
-//
-// 		importOrder()
-//
-// 		removeSemicolons()
-//
-// 		greclipse()
-//
-// 		// Add a license header to all files
-// 		// licenseHeader('/* (C) $YEAR */') // or licenseHeaderFile
-// 	}
-//
-// 	groovyGradle {
-// 		target './*.gradle'
-//
-// 		targetExclude commonExcludes
-//
-// 		greclipse()
-// 	}
-//
-// 	// java {
-// 	// 	importOrder()
-// 	//
-// 	// 	removeUnusedImports()
-// 	//
-// 	// 	cleanthat()
-// 	//
-// 	// 	trimTrailingWhitespace()
-// 	//
-// 	// 	endWithNewline()
-// 	//
-// 	// 	googleJavaFormat()
-// 	//
-// 	// 	formatAnnotations()
-// 	//
-// 	// 	// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
-// 	// }
-// } // ### SPOTLESS
+spotless {
+	format 'misc', {
+		// target TARGET
+		target '**/*.gradle'
+
+		targetExclude commonExcludes
+
+		trimTrailingWhitespace()
+
+		indentWithTabs()
+
+		endWithNewline()
+	}
+
+	groovy   {
+		// target './build.gradle', './settings.gradle', './gradle.properties',
+		//     './gradle/*.gradle'
+		// target TARGET
+		target '**/*.gradle'
+
+		importOrder()
+
+		removeSemicolons()
+
+		greclipse()
+
+		// Add a license header to all files
+		// licenseHeader('/* (C) $YEAR */') // or licenseHeaderFile
+	}
+
+	groovyGradle {
+		// target './build.gradle', './settings.gradle', './gradle.properties',
+		//     './gradle/*.gradle'
+		target '**/*.gradle'
+
+		targetExclude commonExcludes
+
+		greclipse()
+	}
+}
 
 
 // https://github.com/openrewrite/rewrite/issues/1263
@@ -132,27 +127,26 @@ subprojects {
 	}
 
 	// ### PLUGINS
-  apply from: "${rootDir}/gradle/plugins.settings.gradle"
+	apply from: "${rootDir}/gradle/plugins.settings.gradle"
 
 	// ### GLOBAL
 	apply from: "${rootDir}/gradle/global.settings.gradle"
 
-  // ### DEPENDENCIES
-  apply from: "${rootDir}/gradle/dependencies.settings.gradle"
+	// ### DEPENDENCIES
+	apply from: "${rootDir}/gradle/dependencies.settings.gradle"
 
 	// ### SPOTLESS
-  apply from : "${rootDir}/gradle/spotless.settings.gradle"
+	apply from : "${rootDir}/gradle/spotless.settings.gradle"
 
 	// ### REWRITE
-  apply from : "${rootDir}/gradle/rewrite.settings.gradle"
+	apply from : "${rootDir}/gradle/rewrite.settings.gradle"
 
 	// ### CHECKSTYLE
-  apply from : "${rootDir}/gradle/checkstyle.settings.gradle"
+	apply from : "${rootDir}/gradle/checkstyle.settings.gradle"
 
-  // ### TESTS
-  apply from : "${rootDir}/gradle/test.settings.gradle"
+	// ### TESTS
+	apply from : "${rootDir}/gradle/test.settings.gradle"
 
-  // ### TASKS
-  apply from : "${rootDir}/gradle/tasks.settings.gradle"
-
+	// ### TASKS
+	apply from : "${rootDir}/gradle/tasks.settings.gradle"
 }
