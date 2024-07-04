@@ -56,7 +56,7 @@ junit-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.r
 groovy-json = { group = "org.codehaus.groovy", name = "groovy-json", version.ref = "groovyJson" }
 
 # TOOLS
-rewrite-staticAnalysis = { group = "org.openrewrite.recipe", name = "rewrite-static-analysis", version = "1.9.0" }
+rewrite-staticAnalysis = { group = "org.openrewrite.recipe", name = "rewrite-static-analysis", version = "1.11.0" }
 rewrite-javaSecurity = { group = "org.openrewrite.recipe", name = "rewrite-java-security", version = "2.10.3" }
 
 # lint, format deps to be put in buildscript
