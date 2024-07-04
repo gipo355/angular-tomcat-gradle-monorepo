@@ -44,8 +44,8 @@ buildscript {
 // TOP LEVEL CONFIG to format root level files
 // TODO: format root level files with :task
 plugins {
-    // id 'com.diffplug.spotless' version '6.25.0'
     id 'project-report'
+  // id 'com.diffplug.spotless' version '6.25.0'
 	  // id 'groovy'
 }
 //
@@ -131,71 +131,19 @@ subprojects {
 		//   }
 	}
 
-	// not working
-	// https://plugins.gradle.org/plugin/org.openrewrite.rewrite
-	// plugins {
-	//   id 'project-report'
-	//   id 'java'
-	//   id 'maven-publish'
-	//   id 'java-library'
-	//   id 'jacoco'
-	//   id 'groovy'
-	//   id 'checkstyle'
-	//   // id "com.vanniktech.maven.publish" version "0.28.0"
-	//   // id 'com.diffplug.spotless' version '6.25.0'
-	//   // id 'org.openrewrite.rewrite' version '6.16.0'
-	//   // id "com.github.spotbugs" version "6.0.17"
-	//   // id "name.remal.sonarlint" version "4.2.3"
-	//   // id 'info.solidsoft.pitest' version '1.15.0'
-	// }
+	// ### PLUGINS
+  apply from: "${rootDir}/gradle/plugins.settings.gradle"
 
-	// all subprojects will have those
-	apply {
-		plugin("java")
-		plugin("maven-publish")
-		plugin('java-library')
-		plugin("project-report")
-		plugin('jacoco')
-		plugin('war')
-		plugin('idea')
-		plugin('eclipse')
-		plugin('checkstyle')
-		plugin('groovy')
-
-		// TODO: why those require classpath in buildscript?
-		// https://plugins.gradle.org/plugin/com.diffplug.gradle.spotless
-		plugin('org.openrewrite.rewrite')
-		plugin("com.diffplug.spotless")
-		plugin("com.github.spotbugs")
-		plugin("name.remal.sonarlint")
-		plugin('info.solidsoft.pitest')
-	}
-
-	// can test apply from
-	// WORKS
-	// Applying global settings
+	// ### GLOBAL
 	apply from: "${rootDir}/gradle/global.settings.gradle"
 
-	dependencies {
-		//  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
-		testRuntimeOnly(libs.junit.engine)
-		// testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
-		testImplementation(libs.junit.api)
-
-
-    implementation(libs.groovy.json)
-
-		// tools
-		// rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.9.0")
-		rewrite(libs.rewrite.staticAnalysis)
-		// rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
-		rewrite(libs.rewrite.javaSecurity)
-	}
+  // ### DEPENDENCIES
+  apply from: "${rootDir}/gradle/dependencies.settings.gradle"
 
 	// ### SPOTLESS
   apply from : "${rootDir}/gradle/spotless.settings.gradle"
 
-	// ### REWRITE,
+	// ### REWRITE
   apply from : "${rootDir}/gradle/rewrite.settings.gradle"
 
 	// ### CHECKSTYLE

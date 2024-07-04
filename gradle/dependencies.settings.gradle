@@ -1,0 +1,15 @@
+dependencies {
+  //  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+  testRuntimeOnly(libs.junit.engine)
+  // testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+  testImplementation(libs.junit.api)
+
+
+  implementation(libs.groovy.json)
+
+  // tools
+  // rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.9.0")
+  rewrite(libs.rewrite.staticAnalysis)
+  // rewrite("org.openrewrite.recipe:rewrite-java-security:2.9.0")
+  rewrite(libs.rewrite.javaSecurity)
+}

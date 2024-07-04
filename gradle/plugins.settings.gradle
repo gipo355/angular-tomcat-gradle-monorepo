@@ -1,0 +1,20 @@
+apply {
+  plugin("java")
+  plugin("maven-publish")
+  plugin('java-library')
+  plugin("project-report")
+  plugin('jacoco')
+  plugin('war')
+  plugin('idea')
+  plugin('eclipse')
+  plugin('checkstyle')
+  plugin('groovy')
+
+  // TODO: why those require classpath in buildscript?
+  // https://plugins.gradle.org/plugin/com.diffplug.gradle.spotless
+  plugin('org.openrewrite.rewrite')
+  plugin("com.diffplug.spotless")
+  plugin("com.github.spotbugs")
+  plugin("name.remal.sonarlint")
+  plugin('info.solidsoft.pitest')
+}
