@@ -108,6 +108,11 @@ spotless {
 	}
 }
 
+tasks.register("fix") {
+	dependsOn "spotlessApply"
+}
+
+
 
 // https://github.com/openrewrite/rewrite/issues/1263
 

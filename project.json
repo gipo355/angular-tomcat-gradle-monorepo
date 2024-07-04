@@ -1,0 +1,19 @@
+{
+  "name": "angular-java-monorepo",
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "root": ".",
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "./gradlew :check"
+      }
+    },
+    "fix": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "./gradlew :fix"
+      }
+    }
+  }
+}
