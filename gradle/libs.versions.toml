@@ -57,7 +57,7 @@ groovy-json = { group = "org.codehaus.groovy", name = "groovy-json", version.ref
 
 # TOOLS
 rewrite-staticAnalysis = { group = "org.openrewrite.recipe", name = "rewrite-static-analysis", version = "1.9.0" }
-rewrite-javaSecurity = { group = "org.openrewrite.recipe", name = "rewrite-java-security", version = "2.9.0" }
+rewrite-javaSecurity = { group = "org.openrewrite.recipe", name = "rewrite-java-security", version = "2.10.3" }
 
 # lint, format deps to be put in buildscript
 # classpath("org.openrewrite:plugin:6.16.0")
