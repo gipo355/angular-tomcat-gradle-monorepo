@@ -1,0 +1,13 @@
+checkstyle {
+  // toolVersion '10.17.0'
+  toolVersion = libs.versions.checkstyle.get()
+  configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+
+
+  // configDirectory = '../../checkstyle'
+  // configDirectory = file("../../checkstyle")
+
+  ignoreFailures = false
+
+  maxWarnings = 0
+} // ### CHECKSTYLE

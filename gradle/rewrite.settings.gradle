@@ -1,0 +1,9 @@
+rewrite {
+  activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
+
+  activeRecipe("org.openrewrite.java.security.PartialPathTraversalVulnerability")
+
+  activeRecipe("org.openrewrite.java.security.JavaSecurityBestPractices")
+
+  activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
+} // ### REWRITE

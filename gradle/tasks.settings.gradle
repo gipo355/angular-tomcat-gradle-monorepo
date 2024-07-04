@@ -1,0 +1,39 @@
+tasks.register("fix") {
+  dependsOn "spotlessApply"
+  dependsOn "rewriteRun"
+}
+
+// TODO: why do i manually have to add lint task in subproject project.json to make it work?
+// why can't nx/gradle find this task
+// e.g "lint": "./gradlew :libs:smispi:lint"
+tasks.register("lint") {
+  dependsOn "check"
+}
+
+tasks.register("buildWar") {
+  dependsOn "check"
+  dependsOn "test"
+  dependsOn "war"
+}
+
+task cleanEclipse(type: Delete, overwrite: true) {
+  delete '.project'
+
+  delete '.classpath'
+
+  delete '.settings'
+
+  delete "bin"
+}
+
+tasks.register('integrationTest', Test) {
+  group = 'verification'
+
+  useJUnitPlatform {
+    include("**/integration/**")
+  }
+
+  testLogging {
+    events "passed", "skipped", "failed"
+  }
+}

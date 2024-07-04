@@ -64,15 +64,6 @@ plugins {
 //
 // 		endWithNewline()
 // 	}
-//
-// 	// format 'xml', {
-// 	// 	target '*.xml'
-// 	//
-// 	// 	targetExclude commonExcludes
-// 	//
-// 	// 	eclipseWtp('xml')
-// 	// }
-//
 // 	// format 'styling', {
 // 	// 	targetExclude commonExcludes
 // 	//
@@ -183,19 +174,7 @@ subprojects {
 	// can test apply from
 	// WORKS
 	// Applying global settings
-	apply from: "${rootDir}/gradle/global-settings.gradle"
-	// compileTestJava.options.encoding = "UTF-8"
-	// compileJava.options.encoding = "UTF-8"
-	// sourceCompatibility = 21
-	// targetCompatibility = 21
-	// java {
-	//   toolchain {
-	//     languageVersion = JavaLanguageVersion.of(21)
-	//   }
-	// }
-
-
-	// apply compileTestJava.options.encoding = "UTF-8"
+	apply from: "${rootDir}/gradle/global.settings.gradle"
 
 	dependencies {
 		//  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
@@ -214,112 +193,18 @@ subprojects {
 	}
 
 	// ### SPOTLESS
-  apply from : "${rootDir}/gradle/spotless-settings.gradle"
+  apply from : "${rootDir}/gradle/spotless.settings.gradle"
 
 	// ### REWRITE,
-	rewrite {
-		activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
-
-		activeRecipe("org.openrewrite.java.security.PartialPathTraversalVulnerability")
-
-		activeRecipe("org.openrewrite.java.security.JavaSecurityBestPractices")
-
-		activeRecipe("org.openrewrite.java.security.RegularExpressionDenialOfService")
-	} // ### REWRITE
+  apply from : "${rootDir}/gradle/rewrite.settings.gradle"
 
 	// ### CHECKSTYLE
-	checkstyle {
-		// toolVersion '10.17.0'
-		toolVersion = libs.versions.checkstyle.get()
-		configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+  apply from : "${rootDir}/gradle/checkstyle.settings.gradle"
 
+  // ### TESTS
+  apply from : "${rootDir}/gradle/test.settings.gradle"
 
-		// configDirectory = '../../checkstyle'
-		// configDirectory = file("../../checkstyle")
+  // ### TASKS
+  apply from : "${rootDir}/gradle/tasks.settings.gradle"
 
-		ignoreFailures = false
-
-		maxWarnings = 0
-	} // ### CHECKSTYLE
-
-	// ## JACOCO report for test coverage and codecov
-	// test {
-	//   finalizedBy jacocoTestReport
-	//
-	//   useJUnitPlatform()
-	// }
-	test {
-		// dependsOn 'check'
-
-		finalizedBy jacocoTestReport
-
-		useJUnitPlatform {
-			exclude("**/integration/**")
-		}
-
-		testLogging {
-			events "passed", "skipped", "failed"
-		}
-	}
-
-	jacocoTestReport {
-		dependsOn test
-
-		reports {
-			xml.required = true
-		}
-	}
-
-	// ### PIT
-	pitest {
-		// junit5PluginVersion = '1.2.1'
-		junit5PluginVersion = libs.versions.junit5PluginVersion.get()
-
-		// pitestVersion = '1.15.2'
-		pitestVersion = libs.versions.pitestVersion.get()
-	}
-
-	// those are not picked up by nx must add them to project.json
-	// standardizing tasks across nx monorepo for both java and js
-	// to ease up CI/CD
-	// those tasks are given to all subprojects
-	tasks.register("fix") {
-		dependsOn "spotlessApply"
-		dependsOn "rewriteRun"
-	}
-
-	// TODO: why do i manually have to add lint task in subproject project.json to make it work?
-	// why can't nx/gradle find this task
-	// e.g "lint": "./gradlew :libs:smispi:lint"
-	tasks.register("lint") {
-		dependsOn "check"
-	}
-
-	tasks.register("buildWar") {
-		dependsOn "check"
-		dependsOn "test"
-		dependsOn "war"
-	}
-
-	task cleanEclipse(type: Delete, overwrite: true) {
-		delete '.project'
-
-		delete '.classpath'
-
-		delete '.settings'
-
-		delete "bin"
-	}
-
-	tasks.register('integrationTest', Test) {
-		group = 'verification'
-
-		useJUnitPlatform {
-			include("**/integration/**")
-		}
-
-		testLogging {
-			events "passed", "skipped", "failed"
-		}
-	}
-} // subprojects
+}
