@@ -8,17 +8,25 @@
 // so globalthis is scoped to global-setup and global-teardown
 
 import { HttpStatus } from '@nestjs/common';
-import { ChildProcessWithoutNullStreams, spawn } from 'child_process';
+
+import {
+  // getGlobalDispatcher,
+  setGlobalDispatcher,
+  // interceptors,
+  // request,
+  // Agent,
+  RetryAgent,
+  Client,
+} from 'undici';
+
+import {
+  ChildProcessWithoutNullStreams,
+  // spawn
+} from 'child_process';
 
 import { v2 as compose } from 'docker-compose';
 
 // import ky from 'ky';
-import {
-  // Agent,
-  RetryAgent,
-  Client,
-  setGlobalDispatcher,
-} from 'undici';
 
 // https://undici.nodejs.org/#/docs/best-practices/writing-tests
 // const agent = new Agent({
@@ -118,6 +126,22 @@ module.exports = async function () {
     method: 'GET',
     path: '/jakarta-base-rest/app/base/healthz',
   });
+  // https://blog.platformatic.dev/http-fundamentals-understanding-undici-and-its-working-mechanism
+  // const res = await request('/jakarta-base-rest/app/base/healthz', {
+  //   dispatcher: getGlobalDispatcher().compose(
+  //     interceptors.retry({
+  //       maxRetries: 5,
+  //       minTimeout: 1000,
+  //       maxTimeout: 10000,
+  //       timeoutFactor: 2,
+  //       retryAfter: true,
+  //     })
+  //   ),
+  // });
+
+  // const timeout = new Promise<void>((resolve) => setTimeout(resolve, 15000));
+
+  // Promise.race([timeout, res]);
 
   if (res.statusCode !== HttpStatus.OK) {
     throw new Error('Server is not up and running');
