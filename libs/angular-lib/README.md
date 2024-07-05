@@ -19,3 +19,5 @@ add normal release after second pre-release
 test breaking change in pre-release
 
 test bumping fixed packages changesets
+
+test linked bump
