@@ -1,5 +1,11 @@
 ## 1.1.0-next.3 (2024-07-03)
 
+## 1.1.3
+
+### Patch Changes
+
+- d508b64: test bump
+
 ## 1.1.2
 
 ### Patch Changes
