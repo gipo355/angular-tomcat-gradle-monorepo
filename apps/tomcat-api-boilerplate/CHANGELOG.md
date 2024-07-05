@@ -1,29 +1,40 @@
 ## 1.1.0-next.3 (2024-07-03)
 
-This was a version bump only for tomcat-api-boilerplate to align it with other projects, there were no code changes.
+## 1.1.0
+
+### Patch Changes
+
+- 634a27b: first versioning
+
+This was a version bump only for tomcat-api-boilerplate to align it with other
+projects, there were no code changes.
 
 ## 1.1.0-next.2 (2024-07-03)
 
-This was a version bump only for tomcat-api-boilerplate to align it with other projects, there were no code changes.
+This was a version bump only for tomcat-api-boilerplate to align it with other
+projects, there were no code changes.
 
 ## 1.1.0-next.1 (2024-07-03)
 
-This was a version bump only for tomcat-api-boilerplate to align it with other projects, there were no code changes.
+This was a version bump only for tomcat-api-boilerplate to align it with other
+projects, there were no code changes.
 
 ## 1.1.0-next.0 (2024-07-03)
 
-This was a version bump only for tomcat-api-boilerplate to align it with other projects, there were no code changes.
+This was a version bump only for tomcat-api-boilerplate to align it with other
+projects, there were no code changes.
 
 # 1.0.0 (2024-07-03)
 
-This was a version bump only for tomcat-api-boilerplate to align it with other projects, there were no code changes.
+This was a version bump only for tomcat-api-boilerplate to align it with other
+projects, there were no code changes.
 
 ## 0.1.0 (2024-07-03)
 
-This was a version bump only for tomcat-api-boilerplate to align it with other projects, there were no code changes.
+This was a version bump only for tomcat-api-boilerplate to align it with other
+projects, there were no code changes.
 
 ## 0.0.1 (2024-07-03)
-
 
 ### 🚀 Features
 
@@ -39,8 +50,7 @@ This was a version bump only for tomcat-api-boilerplate to align it with other p
 
 - nx release with changelog and github release
 
-
-### ❤️  Thank You
+### ❤️ Thank You
 
 - Gipo
 - gipo355

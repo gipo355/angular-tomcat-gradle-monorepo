@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0-next.3",
+  "version": "1.1.0",
   "name": "@angular-java-monorepo/tomcat-angular-boilerplate",
   "private": true
 }
