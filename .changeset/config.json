@@ -7,7 +7,7 @@
     }
   ],
   "commit": false,
-  "fixed": [["angular-*"]],
+  "fixed": [["@angular-java-monorepo/angular-*"]],
   "linked": [],
   "access": "restricted",
   "baseBranch": "main",
