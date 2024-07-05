@@ -1,5 +1,11 @@
 ## 1.1.0-next.3 (2024-07-03)
 
+## 1.1.2
+
+### Patch Changes
+
+- 933d051: test ptch in linked
+
 ## 1.1.1
 
 ### Patch Changes
