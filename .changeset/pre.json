@@ -9,5 +9,7 @@
     "@angular-java-monorepo/jakarta-base-rest": "1.1.0",
     "@angular-java-monorepo/smispi": "1.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "nervous-kiwis-search"
+  ]
 }

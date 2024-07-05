@@ -1,5 +1,11 @@
 ## 1.1.0-next.3 (2024-07-03)
 
+## 1.1.4-next.0
+
+### Patch Changes
+
+- bf2e216: test prerel
+
 ## 1.1.3
 
 ### Patch Changes
