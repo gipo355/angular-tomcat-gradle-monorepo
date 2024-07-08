@@ -1,5 +1,11 @@
 ## 1.1.0-next.3 (2024-07-03)
 
+## 1.1.1
+
+### Patch Changes
+
+- f18c372: test a bump for first publish
+
 ## 1.1.0
 
 ### Patch Changes
