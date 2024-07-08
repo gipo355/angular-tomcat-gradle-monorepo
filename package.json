@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "changeset": "changeset",
-    "changeset-publish": "changeset publish",
+    "changeset-publish": "changeset publish && nx release publish",
     "prepare": "tsx scripts/install-hooks.ts",
     "preinstall": "npx only-allow pnpm",
     "clear-all": "tsx scripts/clear.ts",
