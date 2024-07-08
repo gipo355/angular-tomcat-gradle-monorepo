@@ -10,7 +10,7 @@ checkstyle = "10.17.0"
 junit5PluginVersion = '1.2.1'
 pitestVersion = '1.15.2'
 
-tomcat = "9.0.90"
+tomcat = "9.0.91"
 jersey = "2.43"
 jaxb = "2.3.1"
 slf4j = "2.0.13"
