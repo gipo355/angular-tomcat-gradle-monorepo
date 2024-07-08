@@ -7,12 +7,7 @@
     }
   ],
   "commit": false,
-  "fixed": [
-    [
-      "*/angular-lib*",
-      "*/anglar-test-app"
-    ]
-  ],
+  "fixed": [["*/angular-lib*", "*/angular-test-app"]],
   "linked": [],
   "access": "restricted",
   "baseBranch": "main",
