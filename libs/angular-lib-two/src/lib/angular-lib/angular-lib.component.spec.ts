@@ -1,7 +1,7 @@
 import type { ComponentFixture } from '@angular/core/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { AngularLibComponent } from './angular-lib.component';
+import { AngularLibComponent } from './angular-lib-two.component';
 
 describe('AngularLibComponent', () => {
   let component: AngularLibComponent;

@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-angular-lib',
+  selector: 'lib-angular-lib-two',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './angular-lib.component.html',
-  styleUrl: './angular-lib.component.css',
+  templateUrl: './angular-lib-two.component.html',
+  styleUrl: './angular-lib-two.component.css',
 })
 export class AngularLibComponent {
   name = 'Angular';
