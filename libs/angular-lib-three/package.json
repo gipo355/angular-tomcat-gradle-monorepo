@@ -1,10 +1,11 @@
 {
-  "name": "@angular-java-monorepo/angular-lib-three",
+  "name": "@gipo999/angular-lib-three",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^18.0.0",
     "@angular/core": "^18.0.0"
   },
+  "private": false,
   "sideEffects": false,
   "publishConfig": {
     "access": "public"

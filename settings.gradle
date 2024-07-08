@@ -14,7 +14,7 @@ plugins {
 	// alias(libs.plugins.foojayResolver)
 }
 
-rootProject.name = 'angular-java-monorepo'
+rootProject.name = 'gipo999'
 
 // NOTE: must manually include subprojects, this is not nx
 

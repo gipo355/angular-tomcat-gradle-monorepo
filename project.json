@@ -1,5 +1,5 @@
 {
-  "name": "angular-java-monorepo",
+  "name": "root",
   "$schema": "./node_modules/nx/schemas/project-schema.json",
   "root": ".",
   "targets": {

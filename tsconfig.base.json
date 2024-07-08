@@ -21,8 +21,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-java-monorepo/angular-lib": ["libs/angular-lib/src/index.ts"],
-      "@angular-java-monorepo/angular-lib-three": [
+      "@gipo999/angular-lib": ["libs/angular-lib/src/index.ts"],
+      "@gipo999/angular-lib-three": [
         "libs/angular-lib-three/src/index.ts"
       ]
     }
