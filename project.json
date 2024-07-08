@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "@gipo999/root",
   "$schema": "./node_modules/nx/schemas/project-schema.json",
   "root": ".",
   "targets": {
