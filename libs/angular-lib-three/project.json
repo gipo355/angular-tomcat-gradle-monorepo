@@ -35,6 +35,9 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "nx-release-publish": {
+      "command": "echo \"publishing\""
     }
   }
 }
