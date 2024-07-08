@@ -1,16 +1,16 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
-  "changelog": [
-    "@changesets/changelog-git",
-    {
-      "repo": "gipo355/angular-tomcat-gradle-monorepo"
-    }
-  ],
-  "commit": false,
-  "fixed": [["@angular-java-monorepo/angular-*"]],
-  "linked": [],
-  "access": "restricted",
-  "baseBranch": "main",
-  "updateInternalDependencies": "patch",
-  "ignore": []
+	"$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
+	"changelog": [
+		"@changesets/changelog-git",
+		{
+			"repo": "gipo355/angular-tomcat-gradle-monorepo"
+		}
+	],
+	"commit": false,
+	"fixed": [["@angular-java-monorepo/angular-*"]],
+	"linked": [],
+	"access": "restricted",
+	"baseBranch": "main",
+	"updateInternalDependencies": "patch",
+	"ignore": []
 }
