@@ -11,7 +11,9 @@
       }
     },
     "build": {
-      "dependsOn": ["prepare-env"],
+      "dependsOn": [
+        "prepare-env"
+      ],
       "executor": "nx:run-commands",
       "options": {
         "command": "./gradlew :libs:jakarta-base-rest:buildWar && cp libs/jakarta-base-rest/build/libs/jakarta-base-rest.war dist/libs/jakarta-base-rest/"
@@ -41,6 +43,9 @@
       "options": {
         "command": "docker-compose -f libs/jakarta-base-rest/compose.dev.yml up --no-recreate --watch & nodemon --watch libs/jakarta-base-rest/src --ext '.java' --exec './gradlew :libs:jakarta-base-rest:war'"
       }
+    },
+    "nx-release-publish": {
+      "command": "echo \"publishing\""
     }
   }
 }
