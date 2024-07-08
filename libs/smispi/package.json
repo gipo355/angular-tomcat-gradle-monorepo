@@ -1,5 +1,5 @@
 {
   "name": "@angular-java-monorepo/smispi",
   "version": "1.1.0",
-  "private": false
+  "private": true
 }
