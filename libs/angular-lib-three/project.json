@@ -1,5 +1,5 @@
 {
-  "name": "angular-lib-three",
+  "name": "@gipo999/angular-lib-three",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/angular-lib-three/src",
   "prefix": "lib",

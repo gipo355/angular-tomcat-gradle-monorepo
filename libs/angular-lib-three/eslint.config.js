@@ -100,5 +100,5 @@ module.exports = tseslint.config(
       rules: {
         ...config.rules,
       },
-    }))
+    })),
 );
