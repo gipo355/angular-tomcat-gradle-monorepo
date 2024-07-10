@@ -1,5 +1,7 @@
 # @gipo355/angular-lib
 
+## 0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
