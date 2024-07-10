@@ -70,9 +70,9 @@
     "@swc/helpers": "0.5.11",
     "@types/jest": "29.5.12",
     "@types/node": "20.14.10",
-    "@typescript-eslint/eslint-plugin": "7.15.0",
-    "@typescript-eslint/parser": "7.15.0",
-    "@typescript-eslint/utils": "8.0.0-alpha.40",
+    "@typescript-eslint/eslint-plugin": "7.16.0",
+    "@typescript-eslint/parser": "7.16.0",
+    "@typescript-eslint/utils": "8.0.0-alpha.41",
     "autoprefixer": "10.4.19",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
@@ -114,7 +114,7 @@
     "tsc": "2.0.4",
     "tsx": "4.16.2",
     "typescript": "5.4.5",
-    "typescript-eslint": "7.15.0"
+    "typescript-eslint": "7.16.0"
   },
   "packageManager": "pnpm@9.5.0"
 }
