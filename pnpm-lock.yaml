@@ -82,34 +82,34 @@ importers:
         specifier: 18.0.6
         version: 18.0.6
       '@auto-it/all-contributors':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/docker':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/first-time-contributor':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/gh-pages':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/git-tag':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/gradle':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/jira':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/npm':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/released':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@auto-it/upload-assets':
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       '@changesets/changelog-git':
         specifier: 0.2.0
@@ -133,7 +133,7 @@ importers:
         specifier: 9.6.0
         version: 9.6.0
       '@manypkg/get-packages':
-        specifier: ^2.2.2
+        specifier: 2.2.2
         version: 2.2.2
       '@nx/devkit':
         specifier: 19.4.2
@@ -160,7 +160,7 @@ importers:
         specifier: 19.4.2
         version: 19.4.2(@swc-node/register@1.10.3(@swc/core@1.6.13(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.5.3))(@swc/core@1.6.13(@swc/helpers@0.5.11))
       '@octokit/plugin-throttling':
-        specifier: ^9.3.0
+        specifier: 9.3.0
         version: 9.3.0(@octokit/core@6.1.2)
       '@playwright/test':
         specifier: 1.45.1
@@ -193,7 +193,7 @@ importers:
         specifier: 8.0.0-alpha.41
         version: 8.0.0-alpha.41(eslint@9.6.0)(typescript@5.5.3)
       auto:
-        specifier: ^11.1.6
+        specifier: 11.1.6
         version: 11.1.6(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.10)(encoding@0.1.13)(typescript@5.5.3)
       autoprefixer:
         specifier: 10.4.19
@@ -271,7 +271,7 @@ importers:
         specifier: 19.4.2
         version: 19.4.2(@swc-node/register@1.10.3(@swc/core@1.6.13(@swc/helpers@0.5.11))(@swc/types@0.1.9)(typescript@5.5.3))(@swc/core@1.6.13(@swc/helpers@0.5.11))
       octokit:
-        specifier: ^4.0.2
+        specifier: 4.0.2
         version: 4.0.2
       postcss:
         specifier: 8.4.39
@@ -289,7 +289,7 @@ importers:
         specifier: 2.0.1
         version: 2.0.1(prettier@3.3.2)
       semver:
-        specifier: ^7.6.2
+        specifier: 7.6.2
         version: 7.6.2
       stylelint:
         specifier: 16.6.1
@@ -328,10 +328,10 @@ importers:
         specifier: 7.16.0
         version: 7.16.0(eslint@9.6.0)(typescript@5.5.3)
       vitepress:
-        specifier: ^1.3.0
+        specifier: 1.3.0
         version: 1.3.0(@algolia/client-search@4.24.0)(@types/node@20.14.10)(axios@1.7.2)(less@4.1.3)(postcss@8.4.39)(sass@1.77.6)(search-insights@2.15.0)(stylus@0.59.0)(terser@5.29.2)(typescript@5.5.3)
       yargs:
-        specifier: ^17.7.2
+        specifier: 17.7.2
         version: 17.7.2
 
   apps/angular-test-app: {}
