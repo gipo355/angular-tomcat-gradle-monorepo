@@ -32,6 +32,7 @@ tomcat rewrite rules for angular
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/gipo355"><img src="https://avatars.githubusercontent.com/u/91525512?v=4?s=100" width="100px;" alt="Gipo"/><br /><sub><b>Gipo</b></sub></a><br /><a href="#code-gipo355" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/leomolinaro"><img src="https://avatars.githubusercontent.com/u/40320886?v=4?s=100" width="100px;" alt="Leo Molinaro"/><br /><sub><b>Leo Molinaro</b></sub></a><br /><a href="#ideas-leomolinaro" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>
