@@ -1,5 +1,12 @@
 # @gipo355/angular-lib-publish
 
+## 1.0.1-dev.1
+
+### Patch Changes
+
+- 0575f41: test new workflow for versioning
+- abde7c0: test new flow for changeset, need releases
+
 ## 1.0.1-dev.0
 
 ### Patch Changes

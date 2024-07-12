@@ -1,5 +1,11 @@
 # @gipo355/angular-lib
 
+## 1.0.1-dev.1
+
+### Patch Changes
+
+- abde7c0: test new flow for changeset, need releases
+
 ## 1.0.1-dev.0
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @gipo355/smispi
 
+## 1.1.4-dev.0
+
+### Patch Changes
+
+- abde7c0: test new flow for changeset, need releases
+
 ## 1.1.3
 
 ### Patch Changes
