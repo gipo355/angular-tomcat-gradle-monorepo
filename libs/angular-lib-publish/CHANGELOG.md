@@ -1,5 +1,7 @@
 # @gipo355/angular-lib-publish
 
+## 1.0.1-dev.2
+
 ## 1.0.1-dev.1
 
 ### Patch Changes

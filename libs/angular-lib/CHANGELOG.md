@@ -1,5 +1,11 @@
 # @gipo355/angular-lib
 
+## 1.0.1-dev.2
+
+### Patch Changes
+
+- 82b6d4d: add comment to readme
+
 ## 1.0.1-dev.1
 
 ### Patch Changes
