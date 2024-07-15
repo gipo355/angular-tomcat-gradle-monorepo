@@ -1,13 +1,3 @@
-# git hooks by default run on pre-commit
-# specify the stage to run the hook on
-# https://stackoverflow.com/questions/63820683/with-pre-commit-how-to-use-some-hooks-before-commit-and-others-before-push
-# https://medium.com/@iyerajiv/enforcing-conventional-commit-shift-left-5b9771cdaf47
-#
-# Stages: [commit, commit-msg, push]
-# commit[pre-commit]: run the hook on pre-commit, before the commit is made
-# commit-msg[commit-msg]: run the hook on commit-msg, after the commit message is written but before the commit is made
-# push[pre-push]: run the hook on pre-push, before the push is made
-#
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
@@ -15,10 +5,6 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: d0293ebc40f6c0606d624ee4c638c7597f8044d2 # pragma: allowlist secret
     hooks:
-      # on spotless
-      # - id: trailing-whitespace
-      #   stages: [commit]
-      # yaml and json in spotless too for format
       - id: check-yaml
         stages: [commit]
       - id: check-xml
@@ -27,8 +13,6 @@ repos:
         stages: [commit]
       - id: check-json
         stages: [commit]
-      # - id: end-of-file-fixer
-      #   stages: [commit]
       - id: check-added-large-files
         stages: [commit]
       - id: check-case-conflict
@@ -37,7 +21,6 @@ repos:
         stages: [commit]
       - id: check-executables-have-shebangs
         stages: [commit]
-      # - id: check-illegal-windows-names # not working
       - id: check-merge-conflict
         stages: [commit]
       - id: check-shebang-scripts-are-executable
@@ -57,33 +40,16 @@ repos:
         stages: [commit]
         args: ['--baseline', '.secrets.baseline']
         exclude: package.lock.json
-  # WARN: archive, broken
-  # prettier and eslint hooks should be run with lint-staged
-  # - repo: https://github.com/pre-commit/mirrors-prettier
-  #   rev: '' # Use the sha or tag you want to point at
-  #   hooks:
-  #     - id: prettier
-  #       stages: [commit]
-  # Custom hooks, local scripts
-  # https://stackoverflow.com/questions/59499061/how-to-run-custom-shell-script-file-before-pre-commit-hook
   - repo: local
     hooks:
-      # lint commit messages to prevent bad commits
-      # since we aren't intercepting commits, we can't prevent bad messages
-      # It is recommended to commit by using `npm run commit` to enforce the commit message format
       - id: commit-lint
         name: commit-lint
         entry: pnpm commitlint
         language: system
         stages: [commit-msg]
-        # gradle - java specific hooks
-        # We could use spotlessApply to format the code automatically
-        # but it's bad practice to modify code before commit
-        # (changing the intention and content of the commit).
-        # it's better to tell the developer to run spotlessApply before commit
-        # and make sure everything is ok
-        # ---- PRE PUSH ----
-        # executes check, checks everything (spotless, checkstyle)
+      # lint only staged files. check lint-staged.config.js for more info
+      # pointless since we need to lint java projects too
+      # would require duplication but we'll use lint-affected instead
       # - id: lint-staged
       #   name: lint-staged
       #   entry: pnpm lint-staged
@@ -96,9 +62,11 @@ repos:
         pass_filenames: false
         language: system
         stages: [commit]
-      - id: lint-test-build
-        name: lint-test-build
-        entry: pnpm lint-affected
+      # full check before pushing to remote
+      # to reduce probs of CI failing
+      - id: lint-test-build-affected
+        name: lint-test-build-affected
+        entry: pnpm lint-test-build-affected
         verbose: true
         pass_filenames: false
         language: system

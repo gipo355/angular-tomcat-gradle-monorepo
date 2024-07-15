@@ -10,17 +10,6 @@ NX
 See the
 [documentation](https://gipo355.github.io/angular-tomcat-gradle-monorepo/)
 
-## Old
-
-can use gradle monorepo commands directly:
-`./gradlew :<folder>:<project>:<task>`
-
-tomcat rewrite rules for angular
-
-`ng build --base-href /hello/`
-
-<https://medium.com/@nithin.biliya/deploying-angular-application-on-tomcat-server-fixing-deep-linking-issue-577565fe303d>
-
 ## Contributors
 
 Thanks goes to these wonderful people (emoji key):
