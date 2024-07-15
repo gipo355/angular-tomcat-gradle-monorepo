@@ -55,6 +55,14 @@ export default defineConfig({
             text: 'Reports',
             link: '/docs/reports',
           },
+          {
+            text: 'Security',
+            link: '/docs/security',
+          },
+          {
+            text: 'Other tools',
+            link: '/docs/other-tools',
+          },
         ],
       },
       {
