@@ -1,5 +1,16 @@
 # NX
 
+::: danger
+I experienced some issues with gradle tasks in NX.
+
+In particular, [flaky tasks](https://nx.dev/ci/features/flaky-tasks) happened
+randomly, sometimes breaking CI
+
+(The gradle task failed, but succeded on the second run).
+
+Wasn't able to pinpoint the issue, needs more investigation.
+:::
+
 Some info about NX in this project.
 
 ## Configuration
@@ -64,6 +75,16 @@ As with every other task, we can override the base command or provide it if it's
 
 Further caching improvements can be made by modifying the `nx.json` file or
 specifying additional configs to `project.json` files.
+
+::: warning
+Caching is fragile and can lead to unexpected results like outdated dependencies and artifacts.
+
+Make sure to configure it propery and test it thoroughly.
+
+Refer to documentation for more info.
+- https://nx.dev/concepts/how-caching-works
+- https://nx.dev/features/cache-task-results
+:::
 
 ## Depends on and implicit dependencies
 
