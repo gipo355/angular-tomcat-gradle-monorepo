@@ -4,9 +4,15 @@ List of other tools used in the project.
 
 ### pre-commit
 
+todo
+
 ### syncpack
 
+todo
+
 ### commitlint
+
+todo
 
 ### Linters / formatters
 
@@ -18,5 +24,10 @@ List of other tools used in the project.
 - prettier
 - eslint
 - biome
+- stylelint
+- htmlhint
+- htmlvalidate
 
 ### vitepress
+
+todo
