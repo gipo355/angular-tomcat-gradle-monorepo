@@ -14,6 +14,9 @@ hero:
     - theme: alt
       text: Documentation
       link: /docs/intro
+    - theme: alt
+      text: See Reports
+      link: /docs/reports
 
 features:
   - icon: 🚀

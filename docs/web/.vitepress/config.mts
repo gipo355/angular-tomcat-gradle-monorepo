@@ -14,7 +14,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Docs', link: '/docs/intro' },
-      { text: 'Reports', link: '/reports/' },
+      { text: 'Reports', link: '/docs/reports/' },
       // { text: 'Examples', link: '/markdown-examples' },
       // { text: 'Examples', link: '/examples/markdown-examples' },
     ],
@@ -32,23 +32,32 @@ export default defineConfig({
         items: [
           {
             text: 'Intro',
-            link: '/docs/intro',
+            link: '/docs',
           },
           {
             text: 'Nx',
-            items: [{ text: 'Start', link: '/docs/nx/start' }],
+            items: [{ text: 'Start', link: '/docs/nx' }],
           },
           {
             text: 'Gradle',
-            items: [{ text: 'Start', link: '/docs/gradle/start' }],
+            items: [{ text: 'Start', link: '/docs/gradle' }],
           },
           {
             text: 'Releases',
-            items: [{ text: 'Start', link: '/docs/releases/start' }],
+            items: [{ text: 'Start', link: '/docs/releases' }],
           },
           {
             text: 'Actions',
-            items: [{ text: 'Start', link: '/docs/actions/start' }],
+            items: [{ text: 'Start', link: '/docs/actions' }],
+          },
+          {
+            text: 'Reports',
+            items: [
+              {
+                text: 'Intro',
+                link: '/docs/reports',
+              },
+            ],
           },
         ],
       },
