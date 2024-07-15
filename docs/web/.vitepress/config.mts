@@ -32,32 +32,53 @@ export default defineConfig({
         items: [
           {
             text: 'Intro',
-            link: '/docs',
+            link: '/docs/intro',
           },
+          // example of nested items
+          // {
+          //   text: 'Nx',
+          //   items: [{ text: 'Start', link: '/docs/nx' }],
+          // },
+          // {
+          //   text: 'Gradle',
+          //   items: [{ text: 'Start', link: '/docs/gradle' }],
+          // },
+          // {
+          //   text: 'Releases',
+          //   items: [{ text: 'Start', link: '/docs/releases' }],
+          // },
+          // {
+          //   text: 'Actions',
+          //   items: [{ text: 'Start', link: '/docs/actions' }],
+          // },
+          // {
+          //   text: 'Reports',
+          //   items: [
+          //     {
+          //       text: 'Intro',
+          //       link: '/docs/reports',
+          //     },
+          //   ],
+          // },
           {
             text: 'Nx',
-            items: [{ text: 'Start', link: '/docs/nx' }],
+            link: '/docs/nx',
           },
           {
             text: 'Gradle',
-            items: [{ text: 'Start', link: '/docs/gradle' }],
+            link: '/docs/gradle',
           },
           {
             text: 'Releases',
-            items: [{ text: 'Start', link: '/docs/releases' }],
+            link: '/docs/releases',
           },
           {
             text: 'Actions',
-            items: [{ text: 'Start', link: '/docs/actions' }],
+            link: '/docs/actions',
           },
           {
             text: 'Reports',
-            items: [
-              {
-                text: 'Intro',
-                link: '/docs/reports',
-              },
-            ],
+            link: '/docs/reports',
           },
         ],
       },
