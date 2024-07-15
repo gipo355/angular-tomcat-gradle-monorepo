@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a5 as e}from"./chunks/framework.BGfKG4OG.js";const u=JSON.parse('{"title":"Gradle","description":"","frontmatter":{},"headers":[],"relativePath":"docs/gradle.md","filePath":"docs/gradle.md"}'),n={name:"docs/gradle.md"},t=e("",20),l=[t];function p(o,h,d,r,k,c){return a(),i("div",null,l)}const g=s(n,[["render",p]]);export{u as __pageData,g as default};

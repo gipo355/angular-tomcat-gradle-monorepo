@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a5 as n}from"./chunks/framework.BGfKG4OG.js";const g=JSON.parse('{"title":"NX","description":"","frontmatter":{},"headers":[],"relativePath":"docs/nx.md","filePath":"docs/nx.md"}'),t={name:"docs/nx.md"},e=n("",35),l=[e];function p(h,k,o,E,r,d){return a(),i("div",null,l)}const u=s(t,[["render",p]]);export{g as __pageData,u as default};
