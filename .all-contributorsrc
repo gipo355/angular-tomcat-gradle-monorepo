@@ -25,6 +25,16 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "alex-beggiato",
+      "name": "Alex",
+      "avatar_url": "https://avatars.githubusercontent.com/u/96126927?v=4",
+      "profile": "https://github.com/alex-beggiato",
+      "contributions": [
+        "ideas",
+        "code"
+      ]
     }
   ]
 }
