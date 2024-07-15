@@ -7,8 +7,35 @@ projects to the `nx graph` command to visualize the dependencies between project
 
 It automatically provides gradle tasks for each project in the workspace.
 
+`nx run smispi:test` is equivalent to `./gradlew :libs:smispi:test` and
+recognized by default.
+
+:::tip
+We can override the task in the `{projectRoot}/project.json` file like this:
+
+```json
+{
+  "name": "smispi",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "libs/smispi",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "./gradlew :libs:smispi:anotherTask"
+      }
+    }
+  }
+}
+```
+:::
+
 ::: warning
 Possible bug or wrong implementation?
+
+A fix task is provided for all subprojects running `spotlessApply`. This is not
+available directly when running `nx run smispi:fix`.
 
 The tasks created in the root `build.gradle` (applied from
 `tasks.settings.gradle`) are not recognized directly.
