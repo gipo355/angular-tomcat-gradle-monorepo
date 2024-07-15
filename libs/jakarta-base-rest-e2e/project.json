@@ -38,6 +38,12 @@
         "passWithNoTests": true
       },
       "dependsOn": ["jakarta-base-rest:build"]
+    },
+    "vuln": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "echo 'todo'"
+      }
     }
   }
 }

@@ -2,10 +2,6 @@
 
 this is a published lib, must be available in the registry
 
-## Running unit tests
+package.json private is set to false
 
-Run `nx test angular-lib-publish` to execute the unit tests.
-
-test publish
-
-add commit for pre test
+has info added for publishing

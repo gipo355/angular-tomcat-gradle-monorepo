@@ -27,3 +27,14 @@ setup
 doesn't require package.json
 
 must expose tasks test, e2e
+
+## vuln testing
+
+this project provides a running environment to test for vulnerabilities with
+zap, wapiti, snyk etc
+
+if you split the setup file to be imported in both Jest and vuln scripts, you
+can reuse the same setup for both.
+
+ideally you have commands like `nx run jakarta-base-rest-e2e:vuln` and
+`nx run jakarta-base-rest-e2e:e2e` to run the tests
