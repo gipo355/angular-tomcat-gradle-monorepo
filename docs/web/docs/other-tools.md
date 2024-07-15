@@ -30,4 +30,4 @@ todo
 
 ### vitepress
 
-todo
+serve with pnpm docs:dev

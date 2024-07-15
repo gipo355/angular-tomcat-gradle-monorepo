@@ -193,10 +193,11 @@ The configuration for the release is in the `nx.json` file:
     }
   }
 ```
-**`nx release publish`** has as default behavior `npm publish` for all the
-projects in the repo with a package.json file containing `private: false`.
 
-we can override this behavior in the project `project.json` file:
+**`nx release publish`** has as default behavior `npm publish` for all the
+projects in the repo with a `package.json` file containing `private: false`.
+
+We can override this behavior in the project `project.json` file:
 
 ```json
 {
@@ -210,5 +211,4 @@ we can override this behavior in the project `project.json` file:
     }
   }
 }
-
 ```

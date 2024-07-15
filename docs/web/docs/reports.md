@@ -18,8 +18,9 @@ A possiblity is publishing them to a static site like this one and provide a men
 
 ### Pitest
 
-::: danger
-it works only if `.../pitest/index.html` is typed in the search bar
+::: warning
+for now it works only if `.../pitest/index.html` is typed in the search bar.
+We are serving this as static file from the `public` folder of vitepress.
 :::
 
 **example:**
