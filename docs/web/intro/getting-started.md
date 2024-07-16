@@ -9,9 +9,9 @@ Missing:
 - Functioning automated versioning with pre-release and automatic
 reconciliation
 
-## What is it?
+## What
 
-This project is a proof of concept to show how to use NX to orchestrate angular
+This project is a proof of concept to show how NX could be used to orchestrate angular
 and java projects.
 
 Using the power of NX (caching, run-many, affected, etc) we can have a fast and
