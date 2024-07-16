@@ -1,5 +1,15 @@
 # @gipo355/smispi
 
+## 1.2.0
+
+### Minor Changes
+
+- 36cc7d2: added a commment that lets you see this works
+
+### Patch Changes
+
+- abde7c0: test new flow for changeset, need releases
+
 ## 1.2.0-dev.1
 
 ### Minor Changes

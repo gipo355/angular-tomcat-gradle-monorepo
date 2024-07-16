@@ -44,6 +44,10 @@ export default defineConfig({
             link: '/docs/gradle',
           },
           {
+            text: 'E2E tests',
+            link: '/docs/e2e-tests',
+          },
+          {
             text: 'Releases',
             link: '/docs/releases',
           },

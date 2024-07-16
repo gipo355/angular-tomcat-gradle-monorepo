@@ -1,21 +1,14 @@
 {
   "mode": "pre",
-  "tag": "dev",
+  "tag": "rc",
   "initialVersions": {
-    "@gipo355/angular-test-app": "0.0.2",
-    "@gipo355/tomcat-angular-boilerplate": "0.0.1",
-    "@gipo355/tomcat-api-boilerplate": "0.0.1",
-    "@gipo355/angular-lib": "1.0.0",
-    "@gipo355/angular-lib-publish": "1.0.0",
-    "@gipo355/jakarta-base-rest": "0.0.1",
-    "@gipo355/smispi": "1.1.3"
+    "@gipo355/angular-test-app": "0.0.3",
+    "@gipo355/tomcat-angular-boilerplate": "0.0.2",
+    "@gipo355/tomcat-api-boilerplate": "0.0.2",
+    "@gipo355/angular-lib": "1.0.1",
+    "@gipo355/angular-lib-publish": "1.0.1",
+    "@gipo355/jakarta-base-rest": "0.0.2",
+    "@gipo355/smispi": "1.2.0"
   },
-  "changesets": [
-    "angry-laws-jam",
-    "green-tomatoes-deliver",
-    "mean-mirrors-call",
-    "modern-buttons-hear",
-    "old-eels-enjoy",
-    "silent-weeks-tap"
-  ]
+  "changesets": []
 }

@@ -1,3 +1,7 @@
+::: warning
+work in progress - not implemented
+:::
+
 # Reports
 
 We can generate reports for:
@@ -19,7 +23,7 @@ A possiblity is publishing them to a static site like this one and provide a men
 ### Pitest
 
 ::: warning
-for now it works only if `.../pitest/index.html` is typed in the search bar.
+For now it works only if `.../pitest/index.html` is typed in the search bar.
 We are serving this as static file from the `public` folder of vitepress.
 :::
 

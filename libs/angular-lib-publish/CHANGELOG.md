@@ -1,5 +1,13 @@
 # @gipo355/angular-lib-publish
 
+## 1.0.1
+
+### Patch Changes
+
+- 0575f41: test new workflow for versioning
+- 6dc2743: added pre enter commit for dev branch
+- abde7c0: test new flow for changeset, need releases
+
 ## 1.0.1-dev.2
 
 ## 1.0.1-dev.1

@@ -1,15 +1,35 @@
-todo
+::: warning
+work in progress - not implemented
+:::
 
-snyk
+# Security
 
-semgrep
+## DAST
 
-dependency check and review
+- [OWASP ZAP](https://www.zaproxy.org/)
 
-dependabot
+- [WAPITI](https://wapiti-scanner.github.io/)
 
-renovate
+## STATIC CODE ANALYSIS
 
-sonarqube
+- snyk
 
-codeql
+- semgrep
+
+- sonarqube
+
+- codeql
+
+## SUPPLY CHAIN SECURITY
+
+- dependabot
+
+- renovate bot
+
+- snyk
+
+- github dependency check and review (graph)
+
+::: warning
+depencency checks by those tools for npm require the lockfile to be commited.
+:::

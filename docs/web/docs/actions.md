@@ -1,18 +1,23 @@
+::: warning
+work in progress
+:::
+
 # Github actions and apps
 
 doc section about github actions in nx
 
 ## actions
 
-### build, lint, test
+### build, lint, test, e2e
 
 ### release / publish
 
 ### versioning
 
-### all-contributors
 
 ## apps
+
+### all-contributors
 
 ### renovate
 
