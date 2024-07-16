@@ -1,9 +1,8 @@
 {
   "name": "jakarta-base-rest-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "root": "libs/jakarta-base-rest-e2e",
-  "implicitDependencies": ["jakarta-base-rest"],
   "projectType": "library",
+  "implicitDependencies": ["jakarta-base-rest"],
   "targets": {
     "prepare-env": {
       "executor": "nx:run-commands",

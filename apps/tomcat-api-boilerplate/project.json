@@ -1,9 +1,8 @@
 {
   "name": "tomcat-api-boilerplate",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "root": "apps/tomcat-api-boilerplate",
-  "implicitDependencies": ["jakarta-base-rest"],
   "projectType": "application",
+  "implicitDependencies": ["jakarta-base-rest"],
   "targets": {
     "prepare-env": {
       "dependsOn": [

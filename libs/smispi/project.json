@@ -1,7 +1,6 @@
 {
   "name": "smispi",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "root": "libs/smispi",
   "projectType": "library",
   "targets": {
     "lint": {

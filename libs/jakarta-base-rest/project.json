@@ -1,7 +1,6 @@
 {
   "name": "jakarta-base-rest",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "root": "libs/jakarta-base-rest",
   "projectType": "library",
   "targets": {
     "prepare-env": {
@@ -13,6 +12,9 @@
     "build": {
       "dependsOn": ["prepare-env"],
       "executor": "nx:run-commands",
+      "outputs": [
+        "{workspaceRoot}/dist/libs/jakarta-base-rest/jakarta-base-rest.war"
+      ],
       "options": {
         "command": "./gradlew :libs:jakarta-base-rest:buildWar && cp libs/jakarta-base-rest/build/libs/jakarta-base-rest.war dist/libs/jakarta-base-rest/"
       }
