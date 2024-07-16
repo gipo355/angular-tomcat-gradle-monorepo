@@ -18,15 +18,19 @@
   },
   "targetDefaults": {
     "lint": {
+      "inputs": ["default"],
       "cache": true
     },
     "fix": {
+      "inputs": ["default"],
       "cache": true
     },
     "test": {
+      "inputs": ["default"],
       "cache": true
     },
     "build": {
+      "inputs": ["default"],
       "cache": true
     },
     "@angular-devkit/build-angular:application": {
