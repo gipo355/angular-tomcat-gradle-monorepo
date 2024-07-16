@@ -99,3 +99,20 @@ subprojects {
 	// ### TASKS
 	apply from : "${rootDir}/gradle/tasks.settings.gradle"
 }
+
+allprojects {
+  apply {
+      plugin("project-report")
+  }
+}
+tasks.register("projectReportAll") {
+        // All project reports of subprojects
+        allprojects.forEach {
+            dependsOn(it.tasks.getAt("projectReport"))
+        }
+    
+        // All projectReportAll of included builds
+        gradle.includedBuilds.forEach {
+            dependsOn(it.task(":projectReportAll"))
+        }
+    }
