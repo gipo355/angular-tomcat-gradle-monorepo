@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gipo355_angular-tomcat-gradle-monorepo&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gipo355_angular-tomcat-gradle-monorepo)
+
 [![All Contributors](https://img.shields.io/github/all-contributors/gipo355/angular-tomcat-gradle-monorepo?color=ee8449&style=flat-square)](##contributors)
 
 # Angular Tomcat Gradle Monorepo
