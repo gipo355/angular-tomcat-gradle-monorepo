@@ -1,3 +1,7 @@
+## 1.0.1-next.2 (2024-07-17)
+
+This was a version bump only for tomcat-angular-boilerplate to align it with other projects, there were no code changes.
+
 ## 1.0.1-next.1 (2024-07-17)
 
 This was a version bump only for tomcat-angular-boilerplate to align it with other projects, there were no code changes.
