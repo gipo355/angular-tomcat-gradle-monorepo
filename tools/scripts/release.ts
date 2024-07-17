@@ -46,8 +46,8 @@ const release = async () => {
 
   const { workspaceVersion, projectsVersionData } = await releaseVersion({
     specifier: options.version,
-    // dryRun: options.dryRun,
-    dryRun: true,
+    dryRun: options.dryRun,
+    // dryRun: true,
     verbose: options.verbose,
     // deleteVersionPlans,
     // gitCommitMessage,
@@ -77,8 +77,8 @@ const release = async () => {
   const { projectChangelogs, workspaceChangelog } = await releaseChangelog({
     versionData: projectsVersionData,
     version: workspaceVersion,
-    // dryRun: options.dryRun,
-    dryRun: true,
+    dryRun: options.dryRun,
+    // dryRun: true,
     verbose: options.verbose,
     firstRelease: options.firstRelease,
     // projects,
@@ -127,8 +127,8 @@ const release = async () => {
 
   // The returned number value from releasePublish will be zero if all projects are published successfully, non-zero if not
   // const publishStatus = await releasePublish({
-  //   // dryRun: options.dryRun,
-  //   dryRun: true,
+  // dryRun: options.dryRun,
+  // //   dryRun: true,
   //   verbose: options.verbose,
   //   //  projects
   //   //  dte,
