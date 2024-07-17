@@ -1,5 +1,5 @@
 {
-  "name": "@gipo355/root",
+  "name": "@gipo355/source",
   "license": "MIT",
   "scripts": {
     "changeset": "changeset",
