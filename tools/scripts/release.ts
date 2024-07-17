@@ -15,11 +15,13 @@ const release = async () => {
   const options = await yargs
     .version(false) // don't use the default meaning of version in yargs
     .option('version', {
+      alias: 'v',
       description:
         'Explicit version specifier to use, if overriding conventional commits',
       type: 'string',
     })
     .option('pre', {
+      alias: 'p',
       description: 'Specify the preid to use for the release',
       type: 'string',
     })
@@ -28,7 +30,6 @@ const release = async () => {
       description:
         'Whether or not to perform a dry-run of the release process, defaults to true',
       type: 'boolean',
-      default: true,
     })
     .option('verbose', {
       description:

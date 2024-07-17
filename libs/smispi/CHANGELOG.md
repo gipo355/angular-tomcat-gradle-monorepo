@@ -1,3 +1,7 @@
+# 1.0.0 (2024-07-17)
+
+This was a version bump only for smispi to align it with other projects, there were no code changes.
+
 # @gipo355/smispi
 
 ## 1.2.0
