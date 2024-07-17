@@ -20,7 +20,7 @@ const release = async () => {
         'Explicit version specifier to use, if overriding conventional commits',
       type: 'string',
     })
-    .option('pre', {
+    .option('preid', {
       alias: 'p',
       description: 'Specify the preid to use for the release',
       type: 'string',
@@ -61,7 +61,7 @@ const release = async () => {
     // groups,
     // projects,
     firstRelease: options.firstRelease,
-    preid: options.pre,
+    preid: options.preid,
     // generatorOptionsOverrides
   });
   // console.group('Workspace Version');
