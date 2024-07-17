@@ -30,21 +30,80 @@ import * as yargs from 'yargs';
 
   const { workspaceVersion, projectsVersionData } = await releaseVersion({
     specifier: options.version,
-    dryRun: options.dryRun,
+    // dryRun: options.dryRun,
+    dryRun: true,
     verbose: options.verbose,
+    // deleteVersionPlans,
+    // gitCommitMessage,
+    // gitTagMessage,
+    // gitCommitArgs,
+    // gitTagArgs,
+    // gitCommit,
+    // gitTag,
+    // stageChanges,
+    // groups,
+    // projects,
+    // firstRelease,
+    // preid,
+    // generatorOptionsOverrides
   });
+  console.group('Workspace Version');
+  console.log(workspaceVersion);
+  console.log(projectsVersionData);
 
-  await releaseChangelog({
+  const { projectChangelogs, workspaceChangelog } = await releaseChangelog({
     versionData: projectsVersionData,
     version: workspaceVersion,
-    dryRun: options.dryRun,
+    // dryRun: options.dryRun,
+    dryRun: true,
     verbose: options.verbose,
+    // firstRelease,
+    // projects,
+    // groups,
+    // stageChanges,
+    // from,
+    // to,
+    // gitTag,
+    // gitCommit,
+    // gitRemote,
+    // gitTagArgs,
+    // interactive,
+    // createRelease,
+    // gitCommitArgs,
+    // gitTagMessage,
+    // gitCommitMessage,
+    // deleteVersionPlans
   });
+  console.group('Workspace Changelog');
+  console.log(workspaceChangelog);
+  console.log(projectChangelogs);
 
   // The returned number value from releasePublish will be zero if all projects are published successfully, non-zero if not
   const publishStatus = await releasePublish({
-    dryRun: options.dryRun,
+    // dryRun: options.dryRun,
+    dryRun: true,
     verbose: options.verbose,
+    //  projects
+    //  dte,
+    //  otp,
+    //  tag,
+    //  prod,
+    //  batch,
+    //  cloud,
+    //  graph,
+    //  groups,
+    //  nxBail,
+    //  runner,
+    //  exclude,
+    //  parallel,
+    //  registry,
+    //  useAgents,
+    //  maxParallel,
+    //  outputStyle,
+    //  skipNxCache,
+    //  firstRelease,
+    //  nxIgnoreCycles
   });
+
   process.exit(publishStatus);
 })();
