@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
 
 const args = process.argv.slice(2);
 
@@ -9,6 +9,7 @@ const findDupeKeys = (path: string) => {
 
   const map = new Map<string, number>();
 
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const traverse = (o: any) => {
     for (const key in o) {
       if (typeof o[key] === 'object') {

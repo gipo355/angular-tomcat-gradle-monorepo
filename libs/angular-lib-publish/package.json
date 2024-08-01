@@ -1,6 +1,6 @@
 {
   "name": "@gipo355/angular-lib-publish",
-  "version": "0.0.4",
+  "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": "^18.0.0",
     "@angular/core": "^18.0.0"

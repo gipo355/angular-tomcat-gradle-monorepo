@@ -1,5 +1,6 @@
 // this file can be used to run custom release scripts
-// not useed
+
+// not used, just as an example, taken from nx github repo
 
 import { releaseChangelog, releasePublish, releaseVersion } from 'nx/release';
 import * as yargs from 'yargs';

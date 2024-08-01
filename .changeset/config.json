@@ -7,14 +7,13 @@
     }
   ],
   "commit": false,
-  "fixed": [
-    [
-      "*/angular-lib*"
-    ]
-  ],
+  "fixed": [["*/angular-lib*"]],
   "linked": [],
   "access": "restricted",
-  "baseBranch": "main",
+  "baseBranch": "dev",
   "updateInternalDependencies": "patch",
-  "ignore": []
+  "ignore": [],
+  "privatePackages": {
+    "tag": true
+  }
 }

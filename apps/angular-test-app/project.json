@@ -21,24 +21,18 @@
       }
     },
     "lint": {
-      "dependsOn": [
-        "pre-lint"
-      ],
+      "dependsOn": ["pre-lint"],
       "executor": "@nx/eslint:lint"
     },
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/angular-test-app",
         "index": "apps/angular-test-app/src/index.html",
         "browser": "apps/angular-test-app/src/main.ts",
         "baseHref": "/angular-test-app/",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/angular-test-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -47,9 +41,7 @@
             "input": "apps/angular-test-app/public"
           }
         ],
-        "styles": [
-          "apps/angular-test-app/src/styles.scss"
-        ],
+        "styles": ["apps/angular-test-app/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -96,15 +88,10 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/angular-test-app/jest.config.ts"
       }
-    },
-    "nx-release-publish": {
-      "command": "echo \"override publish cmd\""
     }
   }
 }

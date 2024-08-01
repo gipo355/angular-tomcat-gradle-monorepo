@@ -12,19 +12,6 @@ const eslint = require('@eslint/js');
 
 const eslintPluginImport = require('eslint-plugin-import');
 
-// const jsoncParser = require('jsonc-eslint-parser');
-// const eslintrc = require('@eslint/eslintrc');
-// const { FlatCompat } = require('@eslint/eslintrc');
-
-// const compat = new FlatCompat({
-//   baseDirectory: __dirname,
-//   recommendedConfig: eslint.configs.recommended,
-// });
-
-// TODO: sonar, angular, import plugins
-
-// tseslint.config is an utility function provided by typescript-eslint
-// to provide type safety and intellisense to the configuration
 module.exports = tseslint.config(
   {
     // must be on its own for glob pattern to work
@@ -36,12 +23,8 @@ module.exports = tseslint.config(
     languageOptions: {
       parser: tsParser,
       globals: {
-        // ...globals.browser,
         ...globals.node,
-        // ...globals.worker,
         ...globals.es2021,
-        // ...eslintrc.Legacy.environments.get('es2024'),
-        // ...globals.jest,
       },
     },
     plugins: {
@@ -186,16 +169,4 @@ module.exports = tseslint.config(
     },
     rules: {},
   }
-
-  // ...compat.config({ extends: ['plugin:@nx/typescript'] }).map((config) => ({
-  //   ...config,
-  //   files: ['**/*.ts', '**/*.tsx'],
-  //   ...config.rules,
-  // })),
-  //
-  // ...compat.config({ env: { jest: true } }).map((config) => ({
-  //   ...config,
-  //   files: ['**/*.spec.ts', '**/*.spec.tsx', '**/*.spec.js', '**/*.spec.jsx'],
-  //   ...config.rules,
-  // }))
 );

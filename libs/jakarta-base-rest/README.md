@@ -1,9 +1,7 @@
-problem with war name and versioning
+# jakarta app
 
-<https://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Parallel_deployment>
+takes version from package.json
 
-when version is given, war is built with the version in it
+uses docker for development
 
-which makes it so tomcat on autodeploy requires the version in the path
-
-we want to publish the versioned war but deploy the unversioned war
+produces a war

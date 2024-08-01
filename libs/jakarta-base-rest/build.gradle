@@ -5,18 +5,13 @@ project.webAppDirName = 'src/main/webapp'
 
 version = getVersionFromNpm()
 
-// archiveFileName = "${project.name}-${project.version}.war"
+// renamed to static filename to be able to use the watch feature of docker and
+// ease up the CI/CD process
 war {
 	archiveFileName = "${project.name}.war"
 }
 
-// TODO: what if different projects need different versions?
-// e.g different tomcat vers
-// different java vers
-// there is documentation on how to do this on the root gradle links
 dependencies {
-
-	//  NOTE: can import directly from the monorepo libs
 	implementation project(':libs:smispi')
 
 	compileOnly libs.bundles.tomcat.api.compileOnly

@@ -1,25 +1,43 @@
-# AngularTomcatGradleMonorepo
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gipo355_angular-tomcat-gradle-monorepo&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gipo355_angular-tomcat-gradle-monorepo)
 
-monorepo with Angular, Tomcat and Gradle
+[![All Contributors](https://img.shields.io/github/all-contributors/gipo355/angular-tomcat-gradle-monorepo?color=ee8449&style=flat-square)](##contributors)
 
-can run nx commands from root folder, tasks for each project.json available
+# Angular Tomcat Gradle Monorepo
 
-can use gradle monorepo commands directly: `./gradlew :<folder>:<project>:<task>`
+A repository to experiment with a multilanguage monorepo with Angular, Java and
+NX
 
-ideally we want to use nx for everything
+## Documentation
 
-## most difficult parts
+See the
+[documentation](https://gipo355.github.io/angular-tomcat-gradle-monorepo/)
 
-versioning
+## Contributors
 
-publishing
+Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
-bundling tomcat with angular
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/gipo355"><img src="https://avatars.githubusercontent.com/u/91525512?v=4?s=100" width="100px;" alt="Gipo"/><br /><sub><b>Gipo</b></sub></a><br /><a href="#code-gipo355" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/leomolinaro"><img src="https://avatars.githubusercontent.com/u/40320886?v=4?s=100" width="100px;" alt="Leo Molinaro"/><br /><sub><b>Leo Molinaro</b></sub></a><br /><a href="#ideas-leomolinaro" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/alex-beggiato"><img src="https://avatars.githubusercontent.com/u/96126927?v=4?s=100" width="100px;" alt="Alex"/><br /><sub><b>Alex</b></sub></a><br /><a href="#ideas-alex-beggiato" title="Ideas, Planning, & Feedback">🤔</a> <a href="#code-alex-beggiato" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/legrottagliegionata"><img src="https://avatars.githubusercontent.com/u/17149364?v=4?s=100" width="100px;" alt="Gionata"/><br /><sub><b>Gionata</b></sub></a><br /><a href="#ideas-legrottagliegionata" title="Ideas, Planning, & Feedback">🤔</a> <a href="#code-legrottagliegionata" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
 
-## brainstorming
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-tomcat rewrite rules for angular
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
-`ng build --base-href /hello/`
+This project follows the
+[all-contributors](https://github.com/kentcdodds/all-contributors)
+specification, contributions of any kind welcome!
 
-<https://medium.com/@nithin.biliya/deploying-angular-application-on-tomcat-server-fixing-deep-linking-issue-577565fe303d>
+[add yourself](https://allcontributors.org/docs/en/bot/usage)

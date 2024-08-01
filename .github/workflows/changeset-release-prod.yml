@@ -1,0 +1,60 @@
+# this action will handle release once the PR is merged into main
+#
+# TODO: missing an important part of the workflow:
+# riconciliation into dev after exiting pre mode
+#
+name: Release Workflow for dev channel
+on:
+  push:
+    branches:
+      - main
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+jobs:
+  release:
+    # if: (github.actor != 'dependabot[bot]') && (github.actor != 'renovate[bot]')
+    name: Release Job
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
+      packages: write
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # npm token to publish nodejs libs
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_PRIVATE }}
+      ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
+      ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_USERNAME }}
+      ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_PASSWORD }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          fetch-depth: 0
+          lfs: true
+          # persist-credentials: false
+      - name: Setup CI Environment
+        uses: ./.github/actions/ci-setup-node
+        with:
+          install_scripts: 'false'
+          install_playwright: 'false'
+      - name: create npmrc step
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Create Release Pull Request step
+        uses: changesets/action@v1
+        id: changesets
+        with:
+          commit: 'chore: changeset release'
+          title: 'chore: changeset release'
+      - name: Create tags, Publish packages
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: |
+          npx changeset tag
+          git push --follow-tags
+          npx nx release publish
+        shell: bash

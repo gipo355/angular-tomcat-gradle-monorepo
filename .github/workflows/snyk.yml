@@ -1,0 +1,56 @@
+# IMP: snyk token can't be used from forks, so PRs from forks will fail
+name: Snyk Security Scan Workflow
+on:
+  # WARN: secrets not available from pull_request forks
+  #
+  # we can't run this on PRs from forks as snyk token can't be used from forks
+  # for security reasons, prs from forks are not allowed to use/read secrets
+  #
+  # Another note: the generated sarif can be uploaded to the GitHub Code Scanning dashboard
+  # but we don't want to upload security vulns for code that is not merged yet
+  #
+  # pull_request:
+  #   branches: ["dev"]
+  push:
+    branches:
+      - dev
+permissions:
+  contents: read
+jobs:
+  snyk:
+    name: Snyk Security Scan Job
+    permissions:
+      security-events: write
+      packages: read
+      contents: read
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    runs-on: ubuntu-latest
+    env:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      PAT: ${{ secrets.PAT }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Set up Snyk CLI to check for security issues
+        uses: snyk/actions/setup@d406fd286b663eb8c6f8adcced4f7bcd199c0a3f
+      - name: login to snyk
+        run: snyk auth ${{ env.SNYK_TOKEN }}
+      - name: run snyk open source
+        run: snyk test --all-projects --sarif > snyk-os.sarif || true
+      - name: Snyk Code test
+        run: snyk code test --sarif > snyk-code.sarif  || true
+      - name: display json output
+        run: cat snyk-os.sarif
+      - name: Upload snyk code result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@530d4feaa9c62aaab2d250371e2061eb7a172363 # v3
+        with:
+          sarif_file: snyk-code.sarif
+      - name: display json output
+        run: cat snyk-code.sarif
+      - name: Upload snyk open source result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@530d4feaa9c62aaab2d250371e2061eb7a172363 # v3
+        with:
+          sarif_file: snyk-os.sarif

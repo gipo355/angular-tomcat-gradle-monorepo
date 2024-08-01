@@ -4,7 +4,7 @@ spotless {
 	// https://github.com/diffplug/spotless/issues/313
 	// https://github.com/diffplug/spotless/issues/178
 	// https://github.com/diffplug/spotless/tree/main/plugin-gradle#ratchet
-	ratchetFrom 'origin/main'
+	// ratchetFrom 'origin/main'
 
 	// spotless in lint-staged
 	// https://gist.github.com/bhaskarmelkani/8baff88980f9cd90f8c44e07e433eb73#file-spotlessapply-sh

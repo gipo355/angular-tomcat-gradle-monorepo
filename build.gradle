@@ -1,23 +1,9 @@
-// NOTE: what is this?
 import jdk.tools.jlink.resources.plugins
-
-// CHECK:
-// https://docs.gradle.org/7.5.1/samples/sample_convention_plugins.html
-// https://docs.gradle.org/current/userguide/platforms.html#sec:dependency-bundles
-// https://medium.com/kufar-tech/gradle-ways-to-share-dependencies-between-modules-27b8c3937f11
-// https://engineering.teknasyon.com/a-simple-guide-to-version-catalog-implementation-in-android-17d0ff3fd1f
-// https://medium.com/@joleksiysurovtsev/gradle-version-catalog-simplifying-dependency-management-between-independent-projects-4a8e8dd2cbe0
-// https://medium.com/@rohitloke/gradle-multi-module-dependency-management-using-version-catalogs-379f3988da5b
-// https://discuss.gradle.org/t/multiple-catalogs-multi-project-buildsrc/45473/4
 
 // NOTE: is there a better more modern way to do this to pass plugins down to subprojects?
 buildscript {
-	// needed for applying plugins to subprojects
-	// and for resolving plugins in root build.gradle
-	// NOTE: why?
 	repositories {
 		mavenCentral()
-		// provide gradle repo for plugins
 		maven {
 			url "https://plugins.gradle.org/m2/"
 		}
@@ -26,27 +12,14 @@ buildscript {
 
 	// TODO: why do we need to specify them here? can't we use them in plugins{}?
 	dependencies {
-		// classpath("org.openrewrite:plugin:6.16.0")
-		// classpath("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
-		// classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.17")
-		// classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
-		// classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
 		classpath(libs.bundles.tools)
 	}
 }
-
-// we want to format root level files
-// how to prevent duplication of configs for root and subprojects?
-// do i need allprojects and subprojects?
-// do i need to define top level repositories?
 
 // TOP LEVEL CONFIG to format root level files
 // TODO: format root level files with :task
 plugins {
 	id 'project-report'
-	// id 'org.openrewrite.rewrite' version '6.16.0'
-
-	// id "com.diffplug.spotless"
 	id 'com.diffplug.spotless' version '6.25.0'
 	id 'groovy'
 }
@@ -55,21 +28,10 @@ def TARGET = "$rootDir/build.gradle, $rootDir/settings.gradle, $rootDir/gradle.p
 
 repositories {
 	mavenCentral()
-	// gradlePluginPortal()
-	//   // gradle plugins
-	//   maven {
-	//     url "https://plugins.gradle.org/m2/"
-	//   }
 }
 
-
-
-// repositories {
-// 	mavenCentral()
-// }
 spotless {
 	format 'misc', {
-		// target TARGET
 		target '**/*.gradle'
 
 		targetExclude commonExcludes
@@ -82,9 +44,6 @@ spotless {
 	}
 
 	groovy   {
-		// target './build.gradle', './settings.gradle', './gradle.properties',
-		//     './gradle/*.gradle'
-		// target TARGET
 		target '**/*.gradle'
 
 		importOrder()
@@ -98,8 +57,6 @@ spotless {
 	}
 
 	groovyGradle {
-		// target './build.gradle', './settings.gradle', './gradle.properties',
-		//     './gradle/*.gradle'
 		target '**/*.gradle'
 
 		targetExclude commonExcludes
@@ -112,23 +69,10 @@ tasks.register("fix") {
 	dependsOn "spotlessApply"
 }
 
-
-
-// https://github.com/openrewrite/rewrite/issues/1263
-
-// https://discuss.gradle.org/t/multi-module-project-how-where-to-apply-plugins/46701/2
-
 // passing all those to subprojects
 subprojects {
-
-	// all subprojects will have those repos, no need to specify
 	repositories {
 		mavenCentral()
-		// gradlePluginPortal()
-		//   // gradle plugins
-		//   maven {
-		//     url "https://plugins.gradle.org/m2/"
-		//   }
 	}
 
 	// ### PLUGINS
@@ -154,4 +98,23 @@ subprojects {
 
 	// ### TASKS
 	apply from : "${rootDir}/gradle/tasks.settings.gradle"
+}
+
+
+allprojects {
+	apply {
+		plugin("project-report")
+	}
+}
+
+tasks.register("projectReportAll") {
+	// All project reports of subprojects
+	allprojects.forEach {
+		dependsOn(it.tasks.getAt("projectReport"))
+	}
+
+	// All projectReportAll of included builds
+	gradle.includedBuilds.forEach {
+		dependsOn(it.task(":projectReportAll"))
+	}
 }

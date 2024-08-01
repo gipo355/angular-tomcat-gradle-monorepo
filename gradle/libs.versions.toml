@@ -21,11 +21,6 @@ groovyJson = "3.0.22"
 jupiter = '5.10.3'
 
 [libraries]
-# groovy-core = { module = "org.codehaus.groovy:groovy", version.ref = "groovy" }
-# groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy" }
-# groovy-nio = { module = "org.codehaus.groovy:groovy-nio", version.ref = "groovy" }
-# commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version = { strictly = "[3.8, 4.0[", prefer="3.9" } }
-
 # API
 tomcatCatalina = { group = "org.apache.tomcat", name = "tomcat-catalina", version.ref = "tomcat" }
 
@@ -60,11 +55,6 @@ rewrite-staticAnalysis = { group = "org.openrewrite.recipe", name = "rewrite-sta
 rewrite-javaSecurity = { group = "org.openrewrite.recipe", name = "rewrite-java-security", version = "2.10.3" }
 
 # lint, format deps to be put in buildscript
-# classpath("org.openrewrite:plugin:6.16.0")
-# classpath("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
-# classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.17")
-# classpath("name.remal.gradle-plugins.sonarlint:sonarlint:4.2.4")
-# classpath("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
 rewrite-plugin = { group = "org.openrewrite", name = "plugin", version = "6.16.3" }
 spotless-plugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version = "6.25.0" }
 spotbugs-plugin = { group = "com.github.spotbugs.snom", name = "spotbugs-gradle-plugin", version = "6.0.18" }
@@ -105,7 +95,5 @@ tomcat-api-testImplementation = [
 
 [plugins]
 # versions = { id = "com.github.ben-manes.versions", version = "0.45.0" }
-# id "com.vanniktech.maven.publish" version "0.28.0"
 vanniktechPublish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
-	# id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
 foojayResolver = { id = "org.gradle.toolchains.foojay-resolver-convention", version = "0.8.0" }

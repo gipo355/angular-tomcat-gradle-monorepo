@@ -1,9 +1,8 @@
 {
   "name": "tomcat-angular-boilerplate",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "root": "apps/tomcat-angular-boilerplate",
-  "implicitDependencies": ["angular-test-app"],
   "projectType": "application",
+  "implicitDependencies": ["angular-test-app"],
   "targets": {
     "prepare-env": {
       "dependsOn": [

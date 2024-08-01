@@ -1,0 +1,74 @@
+#
+# this action prepares a PR on the main branch for a stable channel release
+#
+# merging this PR will trigger the release workflow for the stable channel
+#
+# todo: change base branch to main
+#
+name: Release Workflow for stable channel
+on:
+  push:
+    branches:
+      - dev
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+jobs:
+  release:
+    # if: (github.actor != 'dependabot[bot]') && (github.actor != 'renovate[bot]')
+    name: Release Job
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
+      packages: write
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # npm token to publish nodejs libs
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_PRIVATE }}
+      ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWORD }}
+      ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_USERNAME }}
+      ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_PASSWORD }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          ref: main
+          # fetch-depth: 0
+          # lfs: true
+          # persist-credentials: false
+      - name: Setup CI Environment
+        uses: ./.github/actions/ci-setup-node
+        with:
+          install_scripts: 'false'
+          install_playwright: 'false'
+      - name: create npmrc step
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Reset changeset-release/main branch
+        run: |
+          git fetch origin dev:dev
+          git reset --hard dev
+      - name: Handle production PR
+        run: |
+          # enter exit mode
+          pnpm changeset pre exit
+          # change base branch to target main
+          # pnpm tsx ./scripts/release/changeset.ts
+          pnpm changeset version
+          git config --global user.email "github-actions[bot]"
+          git config --global user.name "github-actions[bot]"
+          git add .
+          git commit -m "chore: version packages" --no-verify
+      # open a PR to merge changes into main
+      # when it's merged, trigger the release workflow for the stable channel
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6.1.0
+        with:
+          branch: changeset-release/main
+          # base: origin/main
+          title: 'chore: changeset release (main)'
+          commit-message: 'chore: changeset release (main)'
