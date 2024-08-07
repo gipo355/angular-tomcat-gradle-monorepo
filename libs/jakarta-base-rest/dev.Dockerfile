@@ -1,4 +1,4 @@
-FROM tomcat:9-jdk21@sha256:8c247ee5bf39eaefcd6c457d468b04f11773e10a2bb0eb47281da9d91f0e4b44
+FROM tomcat:10-jdk21@sha256:3c87192b2e3627fe0c81718107062b6f3448aebb132d4006c18b4b2a54410156
 COPY build/libs/* /usr/local/tomcat/webapps
 
 EXPOSE ${PORT}
